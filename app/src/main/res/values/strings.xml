@@ -175,4 +175,13 @@
     <string name="fillInPassword">הזן ססמא</string>
     <string name="userEmail">דוא\"ל</string>
     <string name="date_of_birth">ת.לידה</string>
+    <string name="userImageProfilePicture">תמונת פרופיל</string>
+    <string name="add_traveler_to_group">הוסף מטייל לקבוצה</string>
+    <string name="group_profile_picture">תמונת קבוצה</string>
+    <string name="shepherdlogo">app logo</string>
+    <string name="travelerInfo">מידע על המטייל</string>
+    <string name="addphonenumber">הזן מספר טלפון</string>
+    <string name="last_name">שם משפחה</string>
+    <string name="first_name">שם פרטי</string>
+    <string name="email_address">כתובת דואר אלקטרוני</string>
 </resources>

@@ -34,7 +34,6 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
         setContentView( R.layout.activity_traveler_reg );
     //    setContentView( R.layout.fragment_group );
         ButterKnife.bind( this );
-        currentShowedGroup = findViewById(R.id.current_group_txt_fld);
         mTextMessage = findViewById( R.id.mTextMessage );
         String tname = travelerReg.getStringExtra("user id");
 
@@ -66,7 +65,9 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
     public void onClick(View view) {
         Bundle userData = getIntent().getExtras();
         switch (view.getId()) {
-            case R.id.sendTravelRegDataBtn:
+            case R.id.join_to_this_group:
+                addCurrentTravelrToChosenGroup();
+                case R.id.sendTravelRegDataBtn:
                 sendTravelerDataToFireBase( userData );
                 break;
             case R.id.startTravelBtn:
@@ -75,6 +76,11 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
         }
 
     }
+
+    private void addCurrentTravelrToChosenGroup() {
+        //todo: create method that adds the travelr to the group he picked
+    }
+
     static
     class ViewHolder{
         @BindView(R.id.traveler_name)
