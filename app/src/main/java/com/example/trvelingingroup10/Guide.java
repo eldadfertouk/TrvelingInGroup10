@@ -13,20 +13,44 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@AllArgsConstructor
+
 @NonNull
 
-@RequiredArgsConstructor
 @ToString
 
 
 public class Guide {
-    public int numberToAdd;
-    public String fullName,displayName,dateOfBirth,guideEmail,guideUid,guideImageRefPath;
-    public boolean isTourLeader;
-    public Image guideProfilePicture;
-    public List oldGroupsTourLeadByGuide;
+    private int numberToAdd;
+    private int guideId;
+    private String fullName,displayName,dateOfBirth,guideEmail,guideUid,guideImageRefPath;
+    private boolean isTourLeader;
+    private Image guideProfilePicture;
+    private List oldGroupsTourLeadByGuide;
 
+    public Guide() {
+    }
+
+    public Guide(int numberToAdd, int guideId, String fullName, String displayName, String dateOfBirth, String guideEmail, String guideUid, String guideImageRefPath, boolean isTourLeader, Image guideProfilePicture, List oldGroupsTourLeadByGuide) {
+        this.numberToAdd = numberToAdd;
+        this.guideId = guideId;
+        this.fullName = fullName;
+        this.displayName = displayName;
+        this.dateOfBirth = dateOfBirth;
+        this.guideEmail = guideEmail;
+        this.guideUid = guideUid;
+        this.guideImageRefPath = guideImageRefPath;
+        this.isTourLeader = isTourLeader;
+        this.guideProfilePicture = guideProfilePicture;
+        this.oldGroupsTourLeadByGuide = oldGroupsTourLeadByGuide;
+    }
+
+    public int getGuideId() {
+        return guideId;
+    }
+
+    public void setGuideId(int guideId) {
+        this.guideId = guideId;
+    }
 
     public int getNumberToAdd() {
         return numberToAdd;

@@ -24,8 +24,8 @@
 
     <TableLayout
         android:id="@+id/travelerTableGrid"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="408dp"
+        android:layout_height="331dp"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/listOfGroupFrag"
         app:layout_constraintEnd_toEndOf="parent"
@@ -39,7 +39,7 @@
 
             <TextView
                 android:id="@+id/mTextMessage"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/activity_horizontal_margin"
                 android:layout_marginTop="@dimen/activity_vertical_margin"
@@ -57,14 +57,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="10"
+                android:hint="@string/fillInPassword"
                 android:inputType="textPassword" />
 
             <EditText
                 android:id="@+id/current_group_txt_fld"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:gravity="start|top"
+                android:hint="@string/currentGroup"
                 android:inputType="textMultiLine" />
         </TableRow>
 
@@ -98,7 +100,7 @@
 
             <CheckBox
                 android:id="@+id/isRealignsCB"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/isreligus" />
 
@@ -122,7 +124,7 @@
 
             <CheckBox
                 android:id="@+id/isDeffCB"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/isdeff" />
 
@@ -184,6 +186,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="317dp" />
+        app:layout_constraintGuide_begin="340dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -36,17 +36,22 @@ public class MyTravelerRecyclerViewAdapter extends RecyclerView.Adapter<MyTravel
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from( parent.getContext() )
                 .inflate( R.layout.fragment_traveler, parent, false );
+
         return new ViewHolder( view );
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mTravelerItem = mValues.get( position );
-//        holder.mIdView.setText( mValues.get( position ).id );
-  //      holder.mNameView.setText(mValues.get(position).travelerGroup);
-    //    holder.mContentView.setText( mValues.get( position ).content );
-
-
+ /*       holder.mIdView.setText( mValues.get( position ).id );
+        holder.mNameView.setText(mValues.get(position). travelerGroup);
+        holder.mContentView.setText( mValues.get( position ).content );
+        holder.userDisplayName.setText(mValues.get(position).);
+        holder.userUid.setText();
+        holder.userFullName.setText();
+        holder.userEmail.setText();
+        holder.userDateOfBirth.setText();
+   */
         holder.mView.setOnClickListener( new View.OnClickListener() {
 
 
@@ -71,10 +76,10 @@ public class MyTravelerRecyclerViewAdapter extends RecyclerView.Adapter<MyTravel
         private final TextView mIdView;
         private final TextView mNameView;
         private final TextView mContentView;
-        Button  addTravelerToGroupBtn,sendRegDataToFireBaseBtn,startAppBtn;
-        TextView userDisplayName,userUid,userFullName,userEmail,userDateOfBirth;
-        Image userProfilePicture;
-        CheckBox isRealigns,isKosher, isBlind,isDeaf,isMiner,isNeedHelp;
+        private final Button  addTravelerToGroupBtn,sendRegDataToFireBaseBtn,startAppBtn;
+        private final TextView userDisplayName,userUid,userFullName,userEmail,userDateOfBirth;
+        private Image userProfilePicture;
+        private final CheckBox isRealigns,isKosher, isBlind,isDeaf,isMiner,isNeedHelp;
 
 
         public TravelerItem mTravelerItem;

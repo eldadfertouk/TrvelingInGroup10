@@ -25,16 +25,15 @@ import lombok.ToString;
 
 
 public class GroupTour {
-    public int numberToAdd;
-    public String GroupName,GroupCode,dateOfTourStart,groupContactInfo,groupId,groupLeader,groupImageRefPath;
-    public Image groupPicture;
-    public static final Map <String, TravelerContent.TravelerItem> TRAVELERS_LIST = new HashMap<String, TravelerContent.TravelerItem>();
-
-
+    private int numberToAdd;
+    private int GroupId;
+    private String GroupName,GroupCode,dateOfTourStart,groupContactInfo,groupId,groupLeader,groupImageRefPath;
+    private Image groupPicture;
+    private Map <String, TravelerContent.TravelerItem> TRAVELERS_LIST = new HashMap<String, TravelerContent.TravelerItem>();
 
 
     public void addTravelerToTheGroupTour(TravelerContent.TravelerItem travelerItem){
-        TRAVELERS_LIST.put("uid",travelerItem);
+        this.TRAVELERS_LIST.put("uid",travelerItem);
         //todo:add travelers to a group
     }
 
@@ -110,7 +109,4 @@ public class GroupTour {
         this.groupPicture = groupPicture;
     }
 
-    public static Map<String, TravelerContent.TravelerItem> getTravelersList() {
-        return TRAVELERS_LIST;
-    }
 }

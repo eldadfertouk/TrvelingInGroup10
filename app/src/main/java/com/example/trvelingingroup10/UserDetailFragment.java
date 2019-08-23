@@ -31,7 +31,7 @@ public class UserDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    //private DummyContent.DummyItem mItem;
+    //private BasicLocationContent.DummyItem mItem;
     private TravelerContent.TravelerItem travelerItem;
 
     /**
@@ -50,7 +50,7 @@ public class UserDetailFragment extends Fragment {
             // arguments. In a real-world scenario, use a Loader
             // to load content from a content provider.
             travelerItem = TravelerContent.ITEM_MAP.get( getArguments().getString( ARG_ITEM_ID ));
-            //mItem = DummyContent.ITEM_MAP.get( getArguments().getString( ARG_ITEM_ID ) );
+            //mItem = BasicLocationContent.ITEM_MAP.get( getArguments().getString( ARG_ITEM_ID ) );
 
             Activity activity = this.getActivity();
             CollapsingToolbarLayout appBarLayout = (CollapsingToolbarLayout) activity.findViewById( R.id.toolbar_layout );

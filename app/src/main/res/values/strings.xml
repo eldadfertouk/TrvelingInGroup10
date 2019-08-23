@@ -171,4 +171,8 @@
     <string name="address">כתובת</string>
     <string name="showedname">שם מוצג</string>
     <string name="profilepicture">תמונת פרופיל</string>
+    <string name="currentGroup">קבוצה נוכחית</string>
+    <string name="fillInPassword">הזן ססמא</string>
+    <string name="userEmail">דוא\"ל</string>
+    <string name="date_of_birth">ת.לידה</string>
 </resources>

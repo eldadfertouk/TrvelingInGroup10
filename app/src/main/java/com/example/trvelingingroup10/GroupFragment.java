@@ -32,7 +32,7 @@ public class GroupFragment extends Fragment {
     private static final String ARG_GROUP_CONTENT="group-content";
     private static final String ARG_GROUP_DETAILS="group-details";
 
-    private int mColumnCount = 5;
+    private int mColumnCount = 1;
 
     private OnListFragmentInteractionListener mListener;
 

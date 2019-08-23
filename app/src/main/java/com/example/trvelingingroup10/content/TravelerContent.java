@@ -39,6 +39,10 @@ public class TravelerContent extends Traveler {
         }
     }
 
+    public TravelerContent(String toString, String toString1, String toString2, String s) {
+        super(toString, toString1, toString2, s);
+    }
+
     private static void addItem(TravelerItem travelerItem) {
         ITEMS.add( travelerItem );
         ITEM_MAP.put( travelerItem.travelerId, travelerItem );

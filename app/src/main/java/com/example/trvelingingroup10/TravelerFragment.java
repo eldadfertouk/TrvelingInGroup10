@@ -32,7 +32,7 @@ public class TravelerFragment extends Fragment {
     private static final String ARG_TRAVELER_CONTENT="traveler-content";
     private static final String ARG_TRAVELER_DETAILS="traveler-details";
 
-    private int mColumnCount = 5;
+    private int mColumnCount = 1;
     //private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
 

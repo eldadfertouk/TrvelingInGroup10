@@ -35,11 +35,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     // TODO: 5/17/19 find a way to combine the data between the adapter and the fragment in the onClick (section 6 in the word doc)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder,@SuppressLint("RecyclerView") final int i) {
-        viewHolder.fullName.setText(arrayList.get(i).fullName.toString());
-        viewHolder.displayName.setText( arrayList.get(i).displayName.toString() );
-        viewHolder.dateOfBirth.setText( arrayList.get( i ).dateOfBirth.toString() );
-        viewHolder.userEmail.setText( arrayList.get( i ).userEmail );
-        viewHolder.userUid.setText( arrayList.get( i ).userUid );
+        viewHolder.fullName.setText(arrayList.get(i).getFullName());
+        viewHolder.displayName.setText( arrayList.get(i).getDisplayName() );
+        viewHolder.dateOfBirth.setText( arrayList.get( i ).getDateOfBirth() );
+        viewHolder.userEmail.setText( arrayList.get( i ).getUserEmail() );
+        viewHolder.userUid.setText( arrayList.get( i ).getUserUid() );
+
      //   viewHolder.userProfilePicture.setImageDrawable( viewHolder.userProfilePicture.getResources().getDrawable( arrayList.get( i ).getNumberToAdd() ) );
 
 

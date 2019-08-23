@@ -36,10 +36,10 @@ import lombok.*;
 
 
 public class Traveler {
-    public int numberToAdd;
-    public String fullName,displayName,dateOfBirth,userEmail,userUid,travelerGroup,travelerImageRefPath,travelerPhoneNumber;
-    public Boolean isPracticeRealign,isEatKosherFood,isHeavySited,isHeavyListener,isMiner,isNeedHelp;
-    public ImageView userProfilePicture;
+    private int numberToAdd;
+    private String fullName,displayName,dateOfBirth,userEmail,userUid,travelerGroup,travelerImageRefPath,travelerPhoneNumber;
+    private Boolean isPracticeRealign,isEatKosherFood,isHeavySited,isHeavyListener,isMiner,isNeedHelp;
+    private ImageView userProfilePicture;
 
     public Traveler(String toString, String toString1, String toString2, String s) {
 
