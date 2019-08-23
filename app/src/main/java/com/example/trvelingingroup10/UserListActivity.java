@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.trvelingingroup10.content.TravelerContent;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -16,8 +17,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
-import com.example.trvelingingroup10.dummy.DummyContent;
 
 import java.util.List;
 
@@ -42,18 +41,13 @@ public class UserListActivity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_user_list );
 
-        Toolbar toolbar = (Toolbar) findViewById( R.id.toolbar );
+        Toolbar toolbar = findViewById( R.id.toolbar );
         setSupportActionBar( toolbar );
         toolbar.setTitle( getTitle() );
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById( R.id.fab );
-        fab.setOnClickListener( new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make( view, "Replace with your own action", Snackbar.LENGTH_LONG )
-                        .setAction( "Action", null ).show();
-            }
-        } );
+        FloatingActionButton fab =  findViewById( R.id.fab );
+        fab.setOnClickListener(view -> Snackbar.make( view, "Replace with your own action", Snackbar.LENGTH_LONG )
+                .setAction( "Action", null ).show());
 
         if (findViewById( R.id.user_detail_container ) != null) {
             // The detail container view will be present only in the
@@ -69,22 +63,22 @@ public class UserListActivity extends AppCompatActivity {
     }
 
     private void setupRecyclerView(@NonNull RecyclerView recyclerView) {
-        recyclerView.setAdapter( new SimpleItemRecyclerViewAdapter( this, DummyContent.ITEMS, mTwoPane ) );
+        recyclerView.setAdapter( new SimpleItemRecyclerViewAdapter( this, TravelerContent.ITEMS, mTwoPane ) );
     }
 
     public static class SimpleItemRecyclerViewAdapter
             extends RecyclerView.Adapter<SimpleItemRecyclerViewAdapter.ViewHolder> {
 
         private final UserListActivity mParentActivity;
-        private final List<DummyContent.DummyItem> mValues;
+        private final List<TravelerContent.TravelerItem> mValues;
         private final boolean mTwoPane;
         private final View.OnClickListener mOnClickListener = new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DummyContent.DummyItem item = (DummyContent.DummyItem) view.getTag();
+                TravelerContent.TravelerItem travelerItem = (TravelerContent.TravelerItem) view.getTag();
                 if (mTwoPane) {
                     Bundle arguments = new Bundle();
-                    arguments.putString( UserDetailFragment.ARG_ITEM_ID, item.id );
+                    arguments.putString( UserDetailFragment.ARG_ITEM_ID,travelerItem.toString() );
                     UserDetailFragment fragment = new UserDetailFragment();
                     fragment.setArguments( arguments );
                     mParentActivity.getSupportFragmentManager().beginTransaction()
@@ -93,7 +87,7 @@ public class UserListActivity extends AppCompatActivity {
                 } else {
                     Context context = view.getContext();
                     Intent intent = new Intent( context, UserDetailActivity.class );
-                    intent.putExtra( UserDetailFragment.ARG_ITEM_ID, item.id );
+                    intent.putExtra( UserDetailFragment.ARG_ITEM_ID, travelerItem.toString() );
 
                     context.startActivity( intent );
                 }
@@ -101,13 +95,14 @@ public class UserListActivity extends AppCompatActivity {
         };
 
         SimpleItemRecyclerViewAdapter(UserListActivity parent,
-                                      List<DummyContent.DummyItem> items,
+                                      List<TravelerContent.TravelerItem> items,
                                       boolean twoPane) {
             mValues = items;
             mParentActivity = parent;
             mTwoPane = twoPane;
         }
 
+        @NonNull
         @Override
         public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View view = LayoutInflater.from( parent.getContext() )
@@ -117,8 +112,8 @@ public class UserListActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(final ViewHolder holder, int position) {
-            holder.mIdView.setText( mValues.get( position ).id );
-            holder.mContentView.setText( mValues.get( position ).content );
+            holder.mIdView.setText( mValues.get( position ).toString() );
+            holder.mContentView.setText( mValues.get( position ).toString() );
 
             holder.itemView.setTag( mValues.get( position ) );
             holder.itemView.setOnClickListener( mOnClickListener );
@@ -135,8 +130,8 @@ public class UserListActivity extends AppCompatActivity {
 
             ViewHolder(View view) {
                 super( view );
-                mIdView = (TextView) view.findViewById( R.id.id_text );
-                mContentView = (TextView) view.findViewById( R.id.content );
+                mIdView =  view.findViewById( R.id.id_text );
+                mContentView =  view.findViewById( R.id.content );
             }
         }
     }

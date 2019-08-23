@@ -40,8 +40,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         viewHolder.dateOfBirth.setText( arrayList.get( i ).getDateOfBirth() );
         viewHolder.userEmail.setText( arrayList.get( i ).getUserEmail() );
         viewHolder.userUid.setText( arrayList.get( i ).getUserUid() );
-
-     //   viewHolder.userProfilePicture.setImageDrawable( viewHolder.userProfilePicture.getResources().getDrawable( arrayList.get( i ).getNumberToAdd() ) );
+        viewHolder.userProfilePicture.setImageDrawable( viewHolder.userProfilePicture.getResources().getDrawable( arrayList.get( i ).getNumberToAdd() ) );
 
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -58,7 +57,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
         return arrayList.size();
     }
 
-    // TODO: 5/31/19 קישור של פרטי מוצר נבחר לצורך הצגה כאובייקט שלאחר מכן יוצג כיחיד מתוך שרשימת ההזמנה
+
     public class ViewHolder extends RecyclerView.ViewHolder{
 
 

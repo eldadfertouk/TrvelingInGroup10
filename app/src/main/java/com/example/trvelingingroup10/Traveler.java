@@ -51,8 +51,8 @@ public class Traveler {
         @Override
         public void onSuccess(Uri uri) {
 
-            // TODO: 10/01/2019 שימוש בספרייה חיצונית שטוענת את הקישור אל תוך אובייקט מסוג אימגווי
-            // TODO: 10/01/2019    יש שימוש בגיפ שיוצג כרקע התמונה כל עוד התמונה לא נטענה
+            // third party liberery that adds images as image view
+            // uses temparery pic until picture is upload
             Glide.with(imageView).load(uri)
                     .thumbnail(Glide.with(imageView).load(R.drawable.mypicspacer))
                     .into(imageView);

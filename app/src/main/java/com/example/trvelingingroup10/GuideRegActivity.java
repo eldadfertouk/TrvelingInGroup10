@@ -29,6 +29,39 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
     private static final String TAG="GuideRegActivity";
     private TextView mTextMessage;
     //private TextView currentTraveler;
+
+    static
+    class ViewHolder {
+        @BindView(R.id.guideNameFld)
+        TextView guideNameFld;
+        @BindView(R.id.spokentangfld)
+        TextView spokentangfld;
+        @BindView(R.id.localGuideCb)
+        CheckBox localGuideCb;
+        @BindView(R.id.addNewGroupBtn)
+        Button addNewGroupBtn;
+        @BindView(R.id.addNewGuideBtn)
+        Button addNewGuideBtn;
+        @BindView(R.id.startTourGuideBtn)
+        Button startTourGuideBtn;
+        @BindView(R.id.nav_view)
+        BottomNavigationView navView;
+
+        @BindView(R.id.travelersListFrag)
+        android.widget.Adapter travelersListFrag;
+        @BindView(R.id.regGuideContainer)
+        ConstraintLayout regGuideContainer;
+        ViewHolder(View view) {
+            ButterKnife.bind( this, view );
+        }
+    }
+
+
+
+
+
+
+
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("guides");
 
@@ -78,7 +111,7 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
         catch (Exception e){
             Log.e(TAG, "addNewGuideDataToFireBase: ");
         }
-        //todo: add new guide to fire base
+
     }
 
     private void addNewGroupToFireBase(Bundle guideData) {
@@ -103,31 +136,6 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
 
     }
 
-    static
-    class ViewHolder {
-        @BindView(R.id.guideNameFld)
-        TextView guideNameFld;
-        @BindView(R.id.spokentangfld)
-        TextView spokentangfld;
-        @BindView(R.id.localGuideCb)
-        CheckBox localGuideCb;
-        @BindView(R.id.addNewGroupBtn)
-        Button addNewGroupBtn;
-        @BindView(R.id.addNewGuideBtn)
-        Button addNewGuideBtn;
-        @BindView(R.id.startTourGuideBtn)
-        Button startTourGuideBtn;
-        @BindView(R.id.nav_view)
-        BottomNavigationView navView;
-
-        @BindView(R.id.travelersListFrag)
-        android.widget.Adapter travelersListFrag;
-        @BindView(R.id.regGuideContainer)
-        ConstraintLayout regGuideContainer;
-        ViewHolder(View view) {
-            ButterKnife.bind( this, view );
-        }
-    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {

@@ -25,6 +25,7 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
     private TextView mTextMessage;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("travelers");
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -35,14 +36,13 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
     //    setContentView( R.layout.fragment_group );
         ButterKnife.bind( this );
         mTextMessage = findViewById( R.id.mTextMessage );
-        String tname = travelerReg.getStringExtra("user id");
 
     }
 
 
     private void sendTravelerDataToFireBase(Bundle userData) {
         myRef.setValue(userData);
-        //todo:send travelers data to fire base
+
     }
 
     private void goToMainAppActivity(Bundle userData) {
@@ -59,7 +59,7 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
       //  String currentGroupContent=groupItem.groupContent.toString();
       //  String sb = (currentGroupId+" "+currentGroupName+" "+currentGroupContent);
       //  currentShowedGroup.setText(sb.toString());
-        Toast.makeText(this,"drek gadol ",Toast.LENGTH_LONG).show();
+        //todo: implement as show morw details
     }
 
     public void onClick(View view) {
@@ -78,7 +78,7 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
     }
 
     private void addCurrentTravelrToChosenGroup() {
-        //todo: create method that adds the travelr to the group he picked
+        //todo: create method that adds the traveler to the group he picked
     }
 
     static

@@ -13,8 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.trvelingingroup10.dummy.DummyContent;
-
 /**
  * A fragment representing a single User detail screen.
  * This fragment is either contained in a {@link UserListActivity}

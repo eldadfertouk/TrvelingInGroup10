@@ -42,7 +42,7 @@ public class TravelerFragment extends Fragment {
      */
 
 
-    // TODO: Customize parameter initialization
+
     @SuppressWarnings("unused")
     public static TravelerFragment newInstance(int columnCount) {
         TravelerFragment fragment = new TravelerFragment();
