@@ -77,10 +77,7 @@ public class MyGroupRecyclerViewAdapter extends RecyclerView.Adapter<MyGroupRecy
             passwordTxt = (TextView) view.findViewById(R.id.passwordFld);
             dateOfTour = (TextView) view.findViewById(R.id.date_of_tour);
 
-
-
-
-            mGroupItem = new GroupItem("11","myTestGroup","test group full content","test group details");
+//            mGroupItem = new GroupItem("11","myTestGroup","test group full content","test group details");
 
 
         }

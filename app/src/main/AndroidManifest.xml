@@ -64,7 +64,7 @@
             android:label="@string/title_activity_maps">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.trvelingingroup10.MainActivity" />
+                android:value="com.example.trvelingingroup10.MainGuideActivity" />
 
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -73,7 +73,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".MainGuideActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -85,7 +85,7 @@
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
-            android:parentActivityName=".MainActivity"
+            android:parentActivityName=".MainGuideActivity"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"
             >
 
@@ -143,6 +143,29 @@
         <activity android:name=".FirstSignIn">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity
+            android:name=".GetUserBasicDetails"
+            android:label="GET USER BASIC DET"
+            android:parentActivityName=".TravelerRegActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ShowTravelersOnFireBase"
+            android:label="GET USER BASIC DET"
+            android:parentActivityName=".GetUserBasicDetails">
+
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>

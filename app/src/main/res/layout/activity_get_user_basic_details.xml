@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swiperefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <EditText
+        android:id="@+id/priavte_name_activity_getusername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:hint="@string/fillinfullname"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/phone_number_enter_activity_get_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:ems="10"
+        android:hint="@string/fillinphonenumber"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/enter_area_of_live_activity_user_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:ems="10"
+        android:hint="@string/fillinaddress"
+        android:inputType="textPersonName" />
+
+    <ImageButton
+        android:id="@+id/enter_profile_photo"
+        android:layout_width="294dp"
+        android:layout_height="198dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="8dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter" />
+
+    <ProgressBar
+        android:id="@+id/image_progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp" />
+
+</android.support.v4.widget.SwipeRefreshLayout>

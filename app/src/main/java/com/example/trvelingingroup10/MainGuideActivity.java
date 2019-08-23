@@ -25,10 +25,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import android.view.Menu;
 
-public class MainActivity extends AppCompatActivity
+public class MainGuideActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, MapFragment.OnFragmentInteractionListener {
 
-    public static String FRAG_MAP_TYPE="travelerFragMap";
+    public static String FRAG_MAP_TYPE="GuideFragMap";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-        //todo: build all intent and menu functions
+        //todo: build all intents and menu functions
         if (id == R.id.nav_camera) {
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {

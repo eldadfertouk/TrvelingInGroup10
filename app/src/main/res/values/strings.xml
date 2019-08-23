@@ -162,4 +162,13 @@
     <string name="dateOfTour">תאריך הטיול</string>
     <string name="joinGroup">הצטרף לקבוצה</string>
     <string name="groupLeader">מדריך הקבוצה</string>
+    <string name="search_range">טווח איתור</string>
+    <string name="fillinfullname">מלא שם פרטי ומשפחה</string>
+    <string name="fillinphonenumber">מלא מספר טלפון</string>
+    <string name="fillinaddress">הכנס כתובת מגורים או מלון</string>
+    <string name="username">שם משתמש</string>
+    <string name="phonenumber">מספר טלפון</string>
+    <string name="address">כתובת</string>
+    <string name="showedname">שם מוצג</string>
+    <string name="profilepicture">תמונת פרופיל</string>
 </resources>

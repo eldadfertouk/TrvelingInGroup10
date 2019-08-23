@@ -24,6 +24,7 @@ import com.example.trvelingingroup10.content.GroupTourContent;
  */
 public class GroupFragment extends Fragment {
 
+
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     private static final String ARG_GROUP_ID ="group-Id";
@@ -109,7 +110,6 @@ public class GroupFragment extends Fragment {
     }
 
     public interface OnListFragmentInteractionListener {
-
 
         void onListFragmentInteraction(GroupItem item);
 

@@ -24,7 +24,7 @@ public class SettingsActivity extends AppCompatActivity {
         setContentView( R.layout.settings_activity );
         getSupportFragmentManager()
                 .beginTransaction()
-                .replace( R.id.settings, new SettingsFragment() )
+                .replace( R.id.settings_frame, new SettingsFragment() )
                 .commit();
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -43,8 +43,8 @@ public class SettingsActivity extends AppCompatActivity {
     class ViewHolder {
         @BindView(R.id.switch1)
         Switch switch1;
-        @BindView(R.id.settings)
-        FrameLayout settings;
+        @BindView(R.id.settings_frame)
+        FrameLayout settings_frame;
         @BindView(R.id.checkBox4)
         CheckBox checkBox4;
         @BindView(R.id.checkBox5)

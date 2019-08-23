@@ -11,6 +11,12 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import pl.droidsonroids.gif.GifImageView;
@@ -34,7 +40,6 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
         phonenumbertextfiled = findViewById(R.id.phoneNumberFld);
         guideRegistrationBtn.setOnClickListener(this);
         travelerRegistrationBtn.setOnClickListener(this);
-
 
         try {
 

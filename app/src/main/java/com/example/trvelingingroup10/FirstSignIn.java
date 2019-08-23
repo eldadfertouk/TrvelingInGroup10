@@ -11,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.firebase.ui.auth.AuthUI;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.auth.User;
 
 import java.util.Arrays;
@@ -22,6 +24,8 @@ import butterknife.ButterKnife;
 import static android.widget.Toast.makeText;
 
 public class FirstSignIn extends AppCompatActivity {
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("signedin");
 
     List<AuthUI.IdpConfig> providers = Arrays.asList(
             new AuthUI.IdpConfig.EmailBuilder().build() );
@@ -68,7 +72,7 @@ public class FirstSignIn extends AppCompatActivity {
 
     public void goToNextRegActivity(FirebaseUser user) {
         makeText( this, "user id:" + user.getUid(), Toast.LENGTH_LONG ).show();
-
+        myRef.setValue(user);
         displayName = user.getDisplayName();
         userEmail = user.getEmail();
         userPhoneNumber = user.getPhoneNumber();

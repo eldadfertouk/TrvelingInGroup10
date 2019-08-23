@@ -2,6 +2,7 @@ package com.example.trvelingingroup10;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
@@ -15,6 +16,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.example.trvelingingroup10.content.TravelerContent;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,10 +26,11 @@ import static android.widget.Toast.makeText;
 
 public class GuideRegActivity extends AppCompatActivity implements TravelerFragment.OnListFragmentInteractionListener,
         View.OnClickListener {
-
+    private static final String TAG="GuideRegActivity";
     private TextView mTextMessage;
     //private TextView currentTraveler;
-
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("guides");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,11 +39,9 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
         setContentView( R.layout.activity_guide_reg );
 //        setContentView( R.layout.fragment_traveler );
         ButterKnife.bind( this );
-
-
         BottomNavigationView navView = findViewById( R.id.nav_view );
-
         mTextMessage = findViewById( R.id.mTextMessage );
+
         try {
             navView.setOnNavigationItemSelectedListener( mOnNavigationItemSelectedListener );
         }
@@ -48,9 +50,6 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
 
         }
 
-
-
-
     }
 
     private void sendGuideRegDataToFireBase(){
@@ -58,30 +57,36 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
     }
     @Override
     public void onListFragmentInteraction(TravelerContent.TravelerItem travelerItem) {
-        //String currentTravelerId = travelerItem ;
-        //String currentTravelerGroup = travelerItem. travelerGroup.toString();
-        //String currentTravelerContent = travelerItem. content.toString();
-        //StringBuilder sb = new StringBuilder(currentTravelerId+" "+currentTravelerGroup+" "+currentTravelerContent);
-        //currentTraveler.setText(sb.toString());
+
     }
 
 
 
     private void goToMainAppAsGuide(Bundle guideData) {
-        Intent moveToMainAppAsGuide = new Intent( this,MainActivity.class );
+        Intent moveToMainAppAsGuide = new Intent( this, MainGuideActivity.class );
         moveToMainAppAsGuide.putExtras( guideData );
         startActivity( moveToMainAppAsGuide );
+        finish();
     }
 
     private void addNewGuideDataToFireBase(Bundle guideData) {
+
+        try {
+            myRef.setValue(guideData);
+            Toast.makeText(this,"send guide to database",Toast.LENGTH_LONG).show();
+        }
+        catch (Exception e){
+            Log.e(TAG, "addNewGuideDataToFireBase: ");
+        }
         //todo: add new guide to fire base
     }
 
     private void addNewGroupToFireBase(Bundle guideData) {
+        //todo: build add new group screen
         //todo:add group to firebase
     }
 
-    @Override
+
     public void onClick(View view) {
         Bundle guideData = getIntent().getExtras();
         switch (view.getId()) {
@@ -95,7 +100,6 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
                 goToMainAppAsGuide(guideData);
                 break;
         }
-
 
     }
 

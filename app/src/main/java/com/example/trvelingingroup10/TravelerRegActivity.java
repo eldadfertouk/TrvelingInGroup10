@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentContainer;
 
 import com.example.trvelingingroup10.content.GroupTourContent;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,30 +20,34 @@ import butterknife.ButterKnife;
 public class TravelerRegActivity extends AppCompatActivity implements GroupFragment.OnListFragmentInteractionListener,
         View.OnClickListener
 {
-
     TextView currentShowedGroup;
     FragmentContainer containerOfGroups;
     private TextView mTextMessage;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("travelers");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate( savedInstanceState );
+        Intent travelerReg = getIntent();
+
         setContentView( R.layout.activity_traveler_reg );
     //    setContentView( R.layout.fragment_group );
         ButterKnife.bind( this );
         currentShowedGroup = findViewById(R.id.current_group_txt_fld);
         mTextMessage = findViewById( R.id.mTextMessage );
-
+        String tname = travelerReg.getStringExtra("user id");
 
     }
 
 
     private void sendTravelerDataToFireBase(Bundle userData) {
+        myRef.setValue(userData);
         //todo:send travelers data to fire base
     }
 
     private void goToMainAppActivity(Bundle userData) {
-        Intent mainAppIntet = new Intent( this, MainActivity.class );
+        Intent mainAppIntet = new Intent( this, MainGuideActivity.class );
         mainAppIntet.putExtras( userData );
         startActivity( mainAppIntet );
         finish();
@@ -49,11 +55,11 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
 
     @Override
     public void onListFragmentInteraction(GroupTourContent.GroupItem groupItem) {
-        String currentGroupId=groupItem.groupId.toString();
-        String currentGroupName=groupItem.groupName.toString();
-        String currentGroupContent=groupItem.groupContent.toString();
-        String sb = (currentGroupId+" "+currentGroupName+" "+currentGroupContent);
-        currentShowedGroup.setText(sb.toString());
+      //  String currentGroupId=groupItem.groupId.toString();
+      //  String currentGroupName=groupItem.groupName.toString();
+      //  String currentGroupContent=groupItem.groupContent.toString();
+      //  String sb = (currentGroupId+" "+currentGroupName+" "+currentGroupContent);
+      //  currentShowedGroup.setText(sb.toString());
         Toast.makeText(this,"drek gadol ",Toast.LENGTH_LONG).show();
     }
 
