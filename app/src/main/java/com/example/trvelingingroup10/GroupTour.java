@@ -17,10 +17,9 @@ import lombok.ToString;
 
 @Getter
 @Setter
-@AllArgsConstructor
+
 @NonNull
 
-@RequiredArgsConstructor
 @ToString
 
 
@@ -31,6 +30,35 @@ public class GroupTour {
     private Image groupPicture;
     private Map <String, TravelerContent.TravelerItem> TRAVELERS_LIST = new HashMap<String, TravelerContent.TravelerItem>();
 
+    public GroupTour() {
+    }
+    public GroupTour(int tets){
+
+        this.numberToAdd = 50;
+        GroupId = 99999;
+        GroupName = "fisrt group";
+        GroupCode = "g1";
+        this.dateOfTourStart = "31/12/2019";
+        this.groupContactInfo = "group contact info sms phone ";
+        this.groupId = "g-id1";
+        this.groupLeader = "team leader";
+        this.groupImageRefPath = "image path";
+
+    }
+
+    public GroupTour(int numberToAdd, int groupId, String groupName, String groupCode, String dateOfTourStart, String groupContactInfo, String groupId1, String groupLeader, String groupImageRefPath, Image groupPicture, Map<String, TravelerContent.TravelerItem> TRAVELERS_LIST) {
+        this.numberToAdd = numberToAdd;
+        GroupId = groupId;
+        GroupName = groupName;
+        GroupCode = groupCode;
+        this.dateOfTourStart = dateOfTourStart;
+        this.groupContactInfo = groupContactInfo;
+        this.groupId = groupId1;
+        this.groupLeader = groupLeader;
+        this.groupImageRefPath = groupImageRefPath;
+        this.groupPicture = groupPicture;
+        this.TRAVELERS_LIST = TRAVELERS_LIST;
+    }
 
     public void addTravelerToTheGroupTour(TravelerContent.TravelerItem travelerItem){
         this.TRAVELERS_LIST.put("uid",travelerItem);

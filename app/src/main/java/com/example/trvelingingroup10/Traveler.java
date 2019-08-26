@@ -13,40 +13,55 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.PipedReader;
 import java.util.HashMap;
 import java.util.Map;
 
 import lombok.*;
-
+import lombok.extern.java.Log;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NonNull
-@RequiredArgsConstructor
 
+@RequiredArgsConstructor
 @ToString
 
+public class Traveler extends BasicAppUser {
 
-public class Traveler {
+    private BasicAppUser user = new BasicAppUser();
+
     private int numberToAdd;
     private String fullName,displayName,dateOfBirth,userEmail,userUid,travelerGroup,travelerImageRefPath,travelerPhoneNumber;
     private Boolean isPracticeRealign,isEatKosherFood,isHeavySited,isHeavyListener,isMiner,isNeedHelp;
     private ImageView userProfilePicture;
+    private FirebaseDatabase database = FirebaseDatabase.getInstance();
+    private DatabaseReference myRef= database.getReference("travelers");
 
+    public Traveler(int a){
+
+        this.fullName="traveler 1";
+        this.displayName="show name";
+        this.dateOfBirth="25/12/2000";
+        this.userEmail="a@a.com";
+        this.userEmail="v8nwFFiV94SwHgS6CiPWuFTw0Uz2";
+        this.travelerGroup="group1";
+        this.travelerPhoneNumber="555-6667777";
+    }
     public Traveler(String toString, String toString1, String toString2, String s) {
 
     }
 
 
-    public void getImageFromServer(final ImageView imageView){
+    private void getImageFromServer(final ImageView imageView){
         FireBaseInit.getFireBaseInit().getStorageRef().child(travelerImageRefPath).getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
         @Override
         public void onSuccess(Uri uri) {
@@ -60,7 +75,7 @@ public class Traveler {
         }
     }).addOnFailureListener(new OnFailureListener() {
         @Override
-        public void onFailure(@NonNull Exception exception) {
+        public void onFailure(@androidx.annotation.NonNull @NonNull Exception exception) {
             // Handle any errors
         }
     });
@@ -130,6 +145,19 @@ public class Traveler {
     public void setImagesRefPath(String imagesRefPath) {
         this.travelerImageRefPath = imagesRefPath;
     }
+    private void AddTravelerToDataBase(Traveler traveler){
+        this.myRef.setValue(Traveler.class, traveler);
+
+    }
+
+    public BasicAppUser getUser() {
+        return user;
+    }
+
+    public void setUser(BasicAppUser user) {
+        this.user = user;
+    }
+
     public int getNumberToAdd() {
         return numberToAdd;
     }
@@ -138,10 +166,12 @@ public class Traveler {
         this.numberToAdd = numberToAdd;
     }
 
+    @Override
     public String getFullName() {
         return fullName;
     }
 
+    @Override
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
@@ -192,6 +222,14 @@ public class Traveler {
 
     public void setTravelerImageRefPath(String travelerImageRefPath) {
         this.travelerImageRefPath = travelerImageRefPath;
+    }
+
+    public String getTravelerPhoneNumber() {
+        return travelerPhoneNumber;
+    }
+
+    public void setTravelerPhoneNumber(String travelerPhoneNumber) {
+        this.travelerPhoneNumber = travelerPhoneNumber;
     }
 
     public Boolean getPracticeRealign() {
@@ -250,11 +288,19 @@ public class Traveler {
         this.userProfilePicture = userProfilePicture;
     }
 
-    public String getTravelerPhoneNumber() {
-        return travelerPhoneNumber;
+    public FirebaseDatabase getDatabase() {
+        return database;
     }
 
-    public void setTravelerPhoneNumber(String travelerPhoneNumber) {
-        this.travelerPhoneNumber = travelerPhoneNumber;
+    public void setDatabase(FirebaseDatabase database) {
+        this.database = database;
+    }
+
+    public DatabaseReference getMyRef() {
+        return myRef;
+    }
+
+    public void setMyRef(DatabaseReference myRef) {
+        this.myRef = myRef;
     }
 }

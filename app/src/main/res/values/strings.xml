@@ -1,13 +1,13 @@
 <resources>
     <string name="app_name">TrvelingInGroup1.0</string>
-    <string name="welcomemasage">hello X here we are</string>
+    <string name="welcomemasage">שלום ,השתשמש במערכת בחוכמה , שימוש נעים</string>
     <string name="guide">מדריך</string>
     <string name="traveler">מטייל</string>
-    <string name="title_activity_guide_reg">GuideRegActivity</string>
+    <string name="title_activity_guide_reg">רישום מדריכים</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="title_activity_traveler_reg">TravelerRegActivity</string>
+    <string name="title_activity_traveler_reg">רישום מטיילים</string>
     <string name="traveler_reg_page_masage">מלא פרטים בהתאם לנדרש</string>
     <string name="send_data">שמור</string>
     <string name="title_activity_scrolling_groups">ScrollingGroupsActivity</string>
@@ -120,8 +120,8 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_title">Traveling Group</string>
+    <string name="nav_header_subtitle">TravelInGroup@Android.com</string>
     <string name="nav_header_desc">Navigation header</string>
 
     <string name="menu_home">בית</string>
@@ -184,4 +184,5 @@
     <string name="last_name">שם משפחה</string>
     <string name="first_name">שם פרטי</string>
     <string name="email_address">כתובת דואר אלקטרוני</string>
+    <string name="display_name">שם תצוגה</string>
 </resources>

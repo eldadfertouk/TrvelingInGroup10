@@ -93,7 +93,7 @@
         app:layout_constraintGuide_begin="336dp" />
 
     <EditText
-        android:id="@+id/BirthDateFld"
+        android:id="@+id/Birth_Date_Fld"
         android:layout_width="301dp"
         android:layout_height="32dp"
         android:ems="10"
@@ -115,7 +115,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline57" />
 
     <CheckBox
-        android:id="@+id/isNeedHelp"
+        android:id="@+id/is_Need_Help"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/needhelp"
@@ -136,17 +136,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
-        android:id="@+id/isDeffCB"
+        android:id="@+id/is_Deff_CB"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/isdeff"
         app:layout_constraintBottom_toTopOf="@+id/guideline65"
         app:layout_constraintEnd_toStartOf="@+id/guideline59"
-        app:layout_constraintStart_toEndOf="@+id/isNeedHelp"
+        app:layout_constraintStart_toEndOf="@+id/is_Need_Help"
         app:layout_constraintTop_toTopOf="@+id/guideline63" />
 
     <CheckBox
-        android:id="@+id/isKosherCB"
+        android:id="@+id/is_Kosher_CB"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/isKosher"
@@ -229,7 +229,7 @@
         app:layout_constraintGuide_begin="198dp" />
 
     <CheckBox
-        android:id="@+id/isRealignsCB"
+        android:id="@+id/is_Realigns_CB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/isreligus"
@@ -239,7 +239,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline65" />
 
     <CheckBox
-        android:id="@+id/isBlaindCB"
+        android:id="@+id/is_Blaind_CB"
         android:layout_width="131dp"
         android:layout_height="33dp"
         android:text="@string/isblainde"
@@ -249,7 +249,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline65" />
 
     <CheckBox
-        android:id="@+id/isMinerCB"
+        android:id="@+id/is_Miner_CB"
         android:layout_width="80dp"
         android:layout_height="30dp"
         android:text="@string/miner"

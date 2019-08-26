@@ -21,7 +21,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 public class MainTravelerActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, MapFragment.OnFragmentInteractionListener {
-
+    private static String TAG="MainTravelerActivity";
     public static String FRAG_MAP_TYPE="travelerFragMap";
     @Override
     protected void onCreate(Bundle savedInstanceState) {

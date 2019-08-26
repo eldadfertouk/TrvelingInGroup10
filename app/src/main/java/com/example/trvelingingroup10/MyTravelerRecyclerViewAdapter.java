@@ -98,12 +98,12 @@ public class MyTravelerRecyclerViewAdapter extends RecyclerView.Adapter<MyTravel
             userDateOfBirth = (TextView) view.findViewById(R.id.user_date_of_birth);
             userEmail = (TextView) view.findViewById(R.id.user_email);
             userDisplayName = (TextView) view.findViewById(R.id.user_displayName);
-            isRealigns = view.findViewById(R.id.isRealignsCB);
-            isKosher = view.findViewById(R.id.isKosherCB);
-            isBlind = view.findViewById(R.id.isBlaindCB);
-            isDeaf = view.findViewById(R.id.isDeffCB);
-            isMiner = view.findViewById(R.id.isMinerCB);
-            isNeedHelp = view.findViewById(R.id.isNeedHelp);
+            isRealigns = view.findViewById(R.id.is_Realigns_CB);
+            isKosher = view.findViewById(R.id.is_Kosher_CB);
+            isBlind = view.findViewById(R.id.is_Blaind_CB);
+            isDeaf = view.findViewById(R.id.is_Deff_CB);
+            isMiner = view.findViewById(R.id.is_Miner_CB);
+            isNeedHelp = view.findViewById(R.id.is_Need_Help);
 
 
             //todo: add user picture

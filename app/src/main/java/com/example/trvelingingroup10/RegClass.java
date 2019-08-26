@@ -38,9 +38,10 @@ import pl.droidsonroids.gif.GifImageView;
 
 
 public class RegClass extends AppCompatActivity implements View.OnClickListener {
+
     private static String TAG="RegClass";
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("RegClassSendsLocation");
+    DatabaseReference myRegClassRef = database.getReference("RegClass");
     private FusedLocationProviderClient mFusedLocationClient;
     private double wayLatitude = 31.675568, wayLongitude = 34.569321;
     private LocationRequest locationRequest;
@@ -48,9 +49,11 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
     private StringBuilder stringBuilder;
     private boolean isContinue = false;
     private boolean isGPS = false;
+    private Traveler traveler;
+    private Guide guide;
 
     public Boolean isGuide = false;
-    TextView useridtextfiled, displaynametextfiled, useremailtextfield, phonenumbertextfiled, locationtextfield;
+    TextView useridtextfiled, displaynametextfiled, useremailtextfield, phonenumbertextfiled, locationtextfield,firstNametextfield,lastNametextfield;
     Button guideRegistrationBtn, travelerRegistrationBtn;
 
     @Override
@@ -65,6 +68,8 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
         useremailtextfield = findViewById(R.id.userEmailFld);
         phonenumbertextfiled = findViewById(R.id.phoneNumberFld);
         locationtextfield = findViewById(R.id.locationFld);
+        lastNametextfield = findViewById(R.id.lastNameFld);
+        firstNametextfield = findViewById(R.id.firstNameFld);
         guideRegistrationBtn.setOnClickListener(this);
         travelerRegistrationBtn.setOnClickListener(this);
         try {
@@ -122,19 +127,24 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
             }
         };
         getLocation();
-        myRef.setValue(locationtextfield.toString());
-        Toast.makeText(this,"send data to fire base",Toast.LENGTH_LONG).show();
+
       //  btnLocation.setOnClickListener(this);
       //  btnContinueLocation.setOnClickListener(this);
         // Read from the database
-        myRef.addValueEventListener(new ValueEventListener() {
+        myRegClassRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // This method is called once with the initial value and again
                 // whenever data at this location is updated.
-                String value = dataSnapshot.getValue(String.class);
-                phonenumbertextfiled.setText(value);
-                Log.d(TAG, "Value is: " + value);
+                try {
+
+                    String value = dataSnapshot.getValue(String.class);
+                    phonenumbertextfiled.setText(value);
+                    Log.d(TAG, "Value is: " + value);
+                }
+                catch (Exception e){
+                    Log.d(TAG, "try to read from fire base and get back hashmap: " );
+                }
             }
 
             @Override
@@ -215,25 +225,62 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
         Bundle regDataFromLogin = getIntent().getExtras();
         switch (view.getId()) {
             case R.id.travelerRegBtn:
-                goToTravelerReGActivity( regDataFromLogin );
+                traveler = new Traveler("eldad","fertouk","try","to build PP");
+                //todo: define traveler object
+                createTravelerObject(this.traveler);
+                //myRegClassRef.setValue(traveler);
+
+                Toast.makeText(this,"send traveler object to fire base",Toast.LENGTH_LONG).show();
+                goToTravelerReGActivity( regDataFromLogin,traveler );
                 break;
             case R.id.guideRegBtn:
+                createGuideObject();
                 isGuide = true;
-                String userType = "guide";
-                goToGuideRegActivity( regDataFromLogin );
+
+                myRegClassRef.setValue(guide);
+                Toast.makeText(this,"send guie object to fire base",Toast.LENGTH_LONG).show();
+                goToGuideRegActivity( regDataFromLogin,guide );
                 break;
         }
     }
 
+    private void createGuideObject() {
 
-    private void goToGuideRegActivity(Bundle regData) {
+        Guide guide = new Guide();
+        guide.setFullName(firstNametextfield.getText().toString()+" "+lastNametextfield.getText().toString());
+        guide.setDisplayName(displaynametextfiled.getText().toString());
+        guide.setGuideUid(useridtextfiled.getText().toString());
+    }
+
+    private void createTravelerObject(Traveler traveler) {
+    /*    traveler.setDateOfBirth("25/10/2019");
+        traveler.setDisplayName("Dis Aply Name");
+        traveler.setFullName("my name is FULL");
+        traveler.setMiner(true);
+        traveler.setTravelerGroup("groupTEN");
+        traveler.setUserUid(useridtextfiled.getText().toString());
+*/
+      /*  String fullname= firstNametextfield.getText().toString() +" "+lastNametextfield.getText().toString();
+        String name = displaynametextfiled.getText().toString();
+        String uid = useridtextfiled.getText().toString();
+        String email = useremailtextfield.getText().toString();
+        String phone = phonenumbertextfiled.getText().toString();
+        String location = locationtextfield.getText().toString();
+        Traveler traveler = new Traveler(name,uid,email,phone);*/
+   //     traveler.AddTravelerToDataBase(this.traveler);
+
+    }
+
+
+    private void goToGuideRegActivity(Bundle regData,Guide guide) {
         Intent guideRegistrationIntet = new Intent( this, GuideRegActivity.class );
         guideRegistrationIntet.putExtras( regData );
         startActivity( guideRegistrationIntet );
         finish();
     }
 
-    private void goToTravelerReGActivity(Bundle regData) {
+    private void goToTravelerReGActivity(Bundle regData,Traveler traveler) {
+
         Intent travelerRegistrationIntent = new Intent( this, TravelerRegActivity.class );
         travelerRegistrationIntent.putExtras( regData );
         startActivity( travelerRegistrationIntent );

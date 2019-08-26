@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.FragmentContainer;
 
 import com.example.trvelingingroup10.content.TravelerContent;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -27,7 +28,12 @@ import static android.widget.Toast.makeText;
 public class GuideRegActivity extends AppCompatActivity implements TravelerFragment.OnListFragmentInteractionListener,
         View.OnClickListener {
     private static final String TAG="GuideRegActivity";
-    private TextView mTextMessage;
+    private TextView mTextMessage,guideName,spokentang;
+    private Button addNewGroupBtn,addNewGuideBtn,startTourAsGuide;
+    private BottomNavigationView navView;
+    private ConstraintLayout regGuideConstraintLayoutContainer;
+    private Boolean isLocalGuide;
+    FragmentContainer listOfTravelers;
     //private TextView currentTraveler;
 
     static
@@ -72,6 +78,7 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
         setContentView( R.layout.activity_guide_reg );
 //        setContentView( R.layout.fragment_traveler );
         ButterKnife.bind( this );
+
         BottomNavigationView navView = findViewById( R.id.nav_view );
         mTextMessage = findViewById( R.id.mTextMessage );
 
@@ -124,12 +131,15 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
         Bundle guideData = getIntent().getExtras();
         switch (view.getId()) {
             case R.id.addNewGroupBtn:
+                Toast.makeText(this,"add new group to fire base",Toast.LENGTH_LONG).show();
                 addNewGroupToFireBase(guideData);
                 break;
             case R.id.addNewGuideBtn:
+                Toast.makeText(this,"add new guide to fire base",Toast.LENGTH_LONG).show();
                 addNewGuideDataToFireBase(guideData);
                 break;
             case R.id.startTourGuideBtn:
+                Toast.makeText(this,"Start app to fire base",Toast.LENGTH_LONG).show();
                 goToMainAppAsGuide(guideData);
                 break;
         }

@@ -46,7 +46,7 @@
                 android:title="@string/menu_send" />
             <item
                 android:id="@+id/nav_call"
-                android:icon="@drawable/fui_ic_phone_white_24dp"
+                android:icon="@drawable/ic_phone_black_24dp"
                 android:title="@string/nav_call" />
         </menu>
     </item>

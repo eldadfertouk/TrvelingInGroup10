@@ -16,7 +16,7 @@ public class FireBaseInit {
     private static FireBaseInit fireBaseInit = null;
     public FirebaseUser user;
 
-    public List<AuthUI.IdpConfig> providers = Collections.singletonList(
+    private List<AuthUI.IdpConfig> providers = Collections.singletonList(
             new AuthUI.IdpConfig.GoogleBuilder().build());
 
     private FirebaseStorage storage;

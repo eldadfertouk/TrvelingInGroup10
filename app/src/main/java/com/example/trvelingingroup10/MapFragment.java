@@ -78,7 +78,7 @@ public class MapFragment extends Fragment {
                         .build();
 
                 mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(31.675560, 34.569375))
+                        .position(new LatLng(31.675560, 34.569475))
                         .title("My Travel Guide")
                         .icon(bitmapDescriptorFromVector(getActivity(),R.drawable.guidesmall)));
 
@@ -89,7 +89,7 @@ public class MapFragment extends Fragment {
                         .snippet("His Talent : your hotel-home"));
 
                 mMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(31.675551,34.569355))
+                        .position(new LatLng(31.675551,34.569655))
                         .icon(bitmapDescriptorFromVector(getActivity(),R.drawable.travelersmall))
                         .title("this is you"));
                 mMap.animateCamera( CameraUpdateFactory.newCameraPosition(googlePlex), 1000, null);

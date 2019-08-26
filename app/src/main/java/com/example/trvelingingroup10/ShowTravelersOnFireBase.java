@@ -73,8 +73,11 @@ public class ShowTravelersOnFireBase extends AppCompatActivity {
                 arraySpinner = new ArrayList<>();
                 allTravelersNames = new ArrayList<>();
                 for (int i = 0; i < task.getResult().getDocuments().size(); i++) {
+                    //todo: check if a is good variable
+
                     Traveler travelerClass = task.getResult().getDocuments().get(i).toObject(Traveler.class);
-                    arraySpinner.add(travelerClass.getFullName());
+                    String a = travelerClass.toString();
+                    arraySpinner.add(a);
                     allTravelersNames.add(travelerClass);
                 }
 
@@ -113,10 +116,10 @@ public class ShowTravelersOnFireBase extends AppCompatActivity {
         name = findViewById(R.id.user_name_in_show_users);
         area = findViewById(R.id.leivingAddress);
         number = findViewById(R.id.phone_in_show_users);
-        name.setText(travelerClass.getFullName());
-        area.setText(travelerClass.getDisplayName());
+    /*    name.setText(travelerClass.getClass().getField("displayName").hashCode());
+        area.setText(travelerClass.getClass().getField(""));
         number.setText(travelerClass.getTravelerPhoneNumber());
-        travelerClass.getImageFromServer(imageView);
+        travelerClass.getImageFromServer(imageView);*/
     }
 
 

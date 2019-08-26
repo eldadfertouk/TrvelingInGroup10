@@ -19,7 +19,8 @@ import lombok.ToString;
 @ToString
 
 
-public class Guide {
+public class Guide extends BasicAppUser{
+    private BasicAppUser user;
     private int numberToAdd;
     private int guideId;
     private String fullName,displayName,dateOfBirth,guideEmail,guideUid,guideImageRefPath;
@@ -28,8 +29,23 @@ public class Guide {
     private List oldGroupsTourLeadByGuide;
 
     public Guide() {
-    }
 
+    }
+    public Guide(int test) {
+        user.setuId("XgURMPleeQWqlPkbowB8HEDDdLe2");
+        user.setPhoneNumber("055-8884444");
+        user.setEmailAddress("a@a.guide.com");
+        user.setFullName("guide full name");
+        this.numberToAdd = 50;
+        this.guideId = 10001;
+        this.fullName = "mister guide";
+        this.displayName = "nick name";
+        this.dateOfBirth = "01/01/1970";
+        this.guideEmail = "a@a.guide.com";
+        this.guideUid = "XgURMPleeQWqlPkbowB8HEDDdLe2";
+
+        this.isTourLeader = true;
+    }
     public Guide(int numberToAdd, int guideId, String fullName, String displayName, String dateOfBirth, String guideEmail, String guideUid, String guideImageRefPath, boolean isTourLeader, Image guideProfilePicture, List oldGroupsTourLeadByGuide) {
         this.numberToAdd = numberToAdd;
         this.guideId = guideId;
