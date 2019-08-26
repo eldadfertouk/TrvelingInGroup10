@@ -13,6 +13,7 @@ public class BasicAppUser {
     public String uId,fullName,emailAddress,phoneNumber;
     public Double lon,lat;
 
+
     public BasicAppUser() {
 
     }

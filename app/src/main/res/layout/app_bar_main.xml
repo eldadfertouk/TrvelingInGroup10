@@ -28,9 +28,10 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="@dimen/fab_margin"
-        android:backgroundTint="#00FFF7F7"
-        app:backgroundTint="@color/fui_transparent"
-        app:rippleColor="@android:color/background_light"
+        android:backgroundTint="@android:color/white"
+        app:backgroundTint="@color/fui_bgGitHub"
+        app:maxImageSize="45dp"
+        app:rippleColor="@color/fui_bgGoogle"
         app:srcCompat="@drawable/panickbuttonicon" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

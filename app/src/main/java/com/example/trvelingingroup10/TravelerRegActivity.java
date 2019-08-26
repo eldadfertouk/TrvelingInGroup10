@@ -50,7 +50,7 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
         String userId =  travelerReg.getStringExtra("user id");
         String displayName = travelerReg.getStringExtra("display name");
         String userEmail = travelerReg.getStringExtra("user email");
-        String phoneNumber = travelerReg.getStringExtra("user email");
+        String phoneNumber = travelerReg.getStringExtra("phone number");
 
         traveler = new Traveler(userId,displayName,userEmail,phoneNumber);
 
