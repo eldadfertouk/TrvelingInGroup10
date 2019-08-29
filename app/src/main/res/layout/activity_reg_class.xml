@@ -2,14 +2,14 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".RegClass">
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="359dp"
-        android:layout_height="218dp"
+        android:layout_width="331dp"
+        android:layout_height="181dp"
         android:contentDescription="@string/shepherdlogo"
         app:layout_constraintBottom_toTopOf="@+id/guideline42"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
@@ -25,8 +25,10 @@
         android:src="@drawable/timerturtle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/guideline54"
+        app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toEndOf="@+id/travelerRegBtn"
-        app:layout_constraintTop_toTopOf="@+id/guideline52" />
+        app:layout_constraintTop_toTopOf="@+id/guideline52"
+        app:layout_constraintVertical_bias="0.13" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline41"
@@ -40,7 +42,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="252dp" />
+        app:layout_constraintGuide_begin="210dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline43"
@@ -61,21 +63,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="285dp" />
+        app:layout_constraintGuide_begin="249dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline46"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="330dp" />
+        app:layout_constraintGuide_begin="305dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline47"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="378dp" />
+        app:layout_constraintGuide_begin="352dp" />
 
     <TextView
         android:id="@+id/userUidFld"
@@ -107,28 +109,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="425dp" />
+        app:layout_constraintGuide_begin="384dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline49"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="477dp" />
+        app:layout_constraintGuide_begin="454dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline50"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="520dp" />
+        app:layout_constraintGuide_begin="510dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline51"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="582dp" />
+        app:layout_constraintGuide_begin="566dp" />
 
     <EditText
         android:id="@+id/displayNameFld"
@@ -144,8 +146,8 @@
 
     <EditText
         android:id="@+id/locationFld"
-        android:layout_width="332dp"
-        android:layout_height="wrap_content"
+        android:layout_width="326dp"
+        android:layout_height="25dp"
         android:ems="10"
         android:hint="location"
         android:inputType="phone"
@@ -189,7 +191,7 @@
         android:ems="10"
         android:hint="@string/email_address"
         android:inputType="textEmailAddress"
-        android:visibility="visible"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/guideline51"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
         app:layout_constraintStart_toStartOf="@+id/guideline44"
@@ -200,7 +202,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="599dp" />
+        app:layout_constraintGuide_begin="558dp" />
 
     <Button
         android:id="@+id/guideRegBtn"
@@ -210,8 +212,10 @@
         android:text="@string/guide"
         app:layout_constraintBottom_toTopOf="@+id/guideline53"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="@+id/guideline54"
-        app:layout_constraintTop_toTopOf="@+id/guideline52" />
+        app:layout_constraintTop_toTopOf="@+id/guideline52"
+        app:layout_constraintVertical_bias="0.1" />
 
     <Button
         android:id="@+id/travelerRegBtn"
@@ -221,15 +225,17 @@
         android:text="@string/traveler"
         app:layout_constraintBottom_toTopOf="@+id/guideline53"
         app:layout_constraintEnd_toStartOf="@+id/guideline55"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/guideline44"
-        app:layout_constraintTop_toTopOf="@+id/guideline52" />
+        app:layout_constraintTop_toTopOf="@+id/guideline52"
+        app:layout_constraintVertical_bias="0.166" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline53"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="726dp" />
+        app:layout_constraintGuide_begin="673dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline54"

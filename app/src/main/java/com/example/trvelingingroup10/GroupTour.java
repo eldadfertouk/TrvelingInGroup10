@@ -4,6 +4,8 @@ import android.media.Image;
 
 import com.example.trvelingingroup10.content.TravelerContent;
 
+import java.sql.Time;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,19 +27,22 @@ import lombok.ToString;
 
 public class GroupTour {
     private int numberToAdd;
-    private int GroupId;
+    private static int GroupId,monitorLevel;
     private String GroupName,GroupCode,dateOfTourStart,groupContactInfo,groupId,groupLeader,groupImageRefPath;
+    private Date startDate,endDate;
+    private Time startTime,endTime;
+
     private Image groupPicture;
     private Map <String, TravelerContent.TravelerItem> TRAVELERS_LIST = new HashMap<String, TravelerContent.TravelerItem>();
 
     public GroupTour() {
     }
     public GroupTour(int tets){
-
         this.numberToAdd = 50;
         GroupId = 99999;
         GroupName = "fisrt group";
         GroupCode = "g1";
+        this.monitorLevel=1;
         this.dateOfTourStart = "31/12/2019";
         this.groupContactInfo = "group contact info sms phone ";
         this.groupId = "g-id1";

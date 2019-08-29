@@ -43,7 +43,7 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRegClassRef = database.getReference("RegClass");
     private FusedLocationProviderClient mFusedLocationClient;
-    private double wayLatitude = 31.675568, wayLongitude = 34.569321;
+    private double wayLatitude = 0.0, wayLongitude = 0.0;
     private LocationRequest locationRequest;
     private LocationCallback locationCallback;
     private StringBuilder stringBuilder;
@@ -51,7 +51,7 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
     private boolean isGPS = false;
     private Traveler traveler;
     private Guide guide;
-
+    private BasicAppUser basicUser;
     public Boolean isGuide = false;
     TextView useridtextfiled, displaynametextfiled, useremailtextfield, phonenumbertextfiled, locationtextfield,firstNametextfield,lastNametextfield;
     Button guideRegistrationBtn, travelerRegistrationBtn;
@@ -60,9 +60,28 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reg_class);
-        Intent reg = getIntent();
+        Intent regClass = getIntent();
+        buildBasicUser(regClass);
+        createLocationCallBack();
+        createScreenWithBasickUserData(basicUser);
+      //  createScreen(regClass);
+
+
+        defineAndSaveLocation();
+        readFromFireBase();
+
+
+        //getLocation();
+    }
+
+    private void createScreenWithBasickUserData(BasicAppUser basicUser) {
+        //buttons
         guideRegistrationBtn = findViewById(R.id.guideRegBtn);
         travelerRegistrationBtn = findViewById(R.id.travelerRegBtn);
+        guideRegistrationBtn.setOnClickListener(this);
+        travelerRegistrationBtn.setOnClickListener(this);
+
+        //basic user fields filled
         useridtextfiled = findViewById(R.id.userUidFld);
         displaynametextfiled = findViewById(R.id.displayNameFld);
         useremailtextfield = findViewById(R.id.userEmailFld);
@@ -70,36 +89,64 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
         locationtextfield = findViewById(R.id.locationFld);
         lastNametextfield = findViewById(R.id.lastNameFld);
         firstNametextfield = findViewById(R.id.firstNameFld);
-        guideRegistrationBtn.setOnClickListener(this);
-        travelerRegistrationBtn.setOnClickListener(this);
+
         try {
-            String uid = reg.getStringExtra("user id");
-            String displayname = reg.getStringExtra("display name");
-            String useremail = reg.getStringExtra("user email");
-            String phounenumber = reg.getStringExtra("phone number");
+            String uid =  basicUser.getuId();
+            String displayname = basicUser.getFullName();
+            String useremail = basicUser.getEmailAddress();
+            String phounenumber = basicUser.getPhoneNumber();
+            String lat = Double.toString(wayLatitude);
+            String lon = Double.toString(wayLongitude);
+            String loc=lat+":"+lon;
             useridtextfiled.setText(uid);
             displaynametextfiled.setText(displayname);
             useremailtextfield.setText(useremail);
             phonenumbertextfiled.setText(phounenumber);
+            locationtextfield.setText(loc);
+            //update basic user with his current location
+            basicUser.setLat(wayLatitude);
+            basicUser.setLon(wayLongitude);
         } catch (Exception e) {
             e.printStackTrace();
             Log.e("RegClass", e + "  ");
         }
+    }
 
-        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
-        locationRequest = LocationRequest.create();
-        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
-        locationRequest.setInterval(10 * 1000); // 10 seconds
-        locationRequest.setFastestInterval(5 * 1000); // 5 seconds
+    private void buildBasicUser(Intent regClass) {
+        String UID = regClass.getStringExtra("user id");
+        String fullName = regClass.getStringExtra("full name");
+        String emailAddr = regClass.getStringExtra("user email");
+        String phoneNumber = regClass.getStringExtra("phone number");
+        basicUser = new BasicAppUser(UID,fullName,emailAddr,phoneNumber,0.0,0.0);
+    }
 
-        new GpsUtils(this).turnGPSOn(new GpsUtils.onGpsListener() {
+    private void readFromFireBase() {
+
+        myRegClassRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void gpsStatus(boolean isGPSEnable) {
-                // turn on GPS
-                isGPS = isGPSEnable;
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                try {
+
+                    String value = dataSnapshot.getValue(String.class);
+                    phonenumbertextfiled.setText(value);
+                    Log.d(TAG, "Value is: " + value);
+                }
+                catch (Exception e){
+                    Log.d(TAG, "try to read from fire base and get back hashmap: " );
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
             }
         });
+        Toast.makeText(this,"read from fire base",Toast.LENGTH_LONG).show();
+    }
 
+    private void createLocationCallBack() {
         locationCallback = new LocationCallback() {
             @Override
             public void onLocationResult(LocationResult locationResult) {
@@ -126,35 +173,26 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
                 }
             }
         };
-        getLocation();
 
-      //  btnLocation.setOnClickListener(this);
-      //  btnContinueLocation.setOnClickListener(this);
-        // Read from the database
-        myRegClassRef.addValueEventListener(new ValueEventListener() {
+    }
+
+    private void defineAndSaveLocation() {
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        locationRequest = LocationRequest.create();
+        locationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        locationRequest.setInterval(10 * 1000); // 10 seconds
+        locationRequest.setFastestInterval(5 * 1000); // 5 seconds
+        // check and alert user to turn GPS on
+        new GpsUtils(this).turnGPSOn(new GpsUtils.onGpsListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // This method is called once with the initial value and again
-                // whenever data at this location is updated.
-                try {
-
-                    String value = dataSnapshot.getValue(String.class);
-                    phonenumbertextfiled.setText(value);
-                    Log.d(TAG, "Value is: " + value);
-                }
-                catch (Exception e){
-                    Log.d(TAG, "try to read from fire base and get back hashmap: " );
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed to read value
-                Log.w(TAG, "Failed to read value.", error.toException());
+            public void gpsStatus(boolean isGPSEnable) {
+                // turn on GPS
+                isGPS = isGPSEnable;
             }
         });
-        Toast.makeText(this,"read from fire base",Toast.LENGTH_LONG).show();
+        getLocation();
     }
+
 
 
     private void getLocation() {
@@ -220,21 +258,22 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
             }
         }
     }
-
+    @Override
     public void onClick(View view) {
+        Intent regClass = getIntent();
         Bundle regDataFromLogin = getIntent().getExtras();
         switch (view.getId()) {
             case R.id.travelerRegBtn:
                 traveler = new Traveler("eldad","fertouk","try","to build PP");
                 //todo: define traveler object
-                createTravelerObject(this.traveler);
+                createTravelerObject(regClass);
                 //myRegClassRef.setValue(traveler);
 
                 Toast.makeText(this,"send traveler object to fire base",Toast.LENGTH_LONG).show();
                 goToTravelerReGActivity( regDataFromLogin,traveler );
                 break;
             case R.id.guideRegBtn:
-                createGuideObject();
+                createGuideObject(regClass);
                 isGuide = true;
 
                 myRegClassRef.setValue(guide);
@@ -243,16 +282,18 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
                 break;
         }
     }
-
-    private void createGuideObject() {
-
+// new guide object create and saved to firebase
+    private void createGuideObject(Intent reg) {
         Guide guide = new Guide();
+
         guide.setFullName(firstNametextfield.getText().toString()+" "+lastNametextfield.getText().toString());
         guide.setDisplayName(displaynametextfiled.getText().toString());
         guide.setGuideUid(useridtextfiled.getText().toString());
     }
+//create new guide and seave to fire base
+    private void createTravelerObject(Intent reg) {
 
-    private void createTravelerObject(Traveler traveler) {
+        traveler = new Traveler(1);
     /*    traveler.setDateOfBirth("25/10/2019");
         traveler.setDisplayName("Dis Aply Name");
         traveler.setFullName("my name is FULL");
@@ -286,5 +327,11 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
         startActivity( travelerRegistrationIntent );
         finish();
     }
+
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture) {
+
+    }
+
 
 }

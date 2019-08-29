@@ -33,6 +33,7 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
     private BottomNavigationView navView;
     private ConstraintLayout regGuideConstraintLayoutContainer;
     private Boolean isLocalGuide;
+    private String guideUID;
     FragmentContainer listOfTravelers;
     private Guide guide;
     //private TextView currentTraveler;
@@ -70,7 +71,7 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
 
 
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("guides");
+    DatabaseReference myGuideRef = database.getReference("guides");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +85,7 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
         setContentView( R.layout.activity_guide_reg );
 //        setContentView( R.layout.fragment_traveler );
         ButterKnife.bind( this );
-
+        guideUID = guideReg.getStringExtra("user id");
         BottomNavigationView navView = findViewById( R.id.nav_view );
         mTextMessage = findViewById( R.id.mTextMessage );
 
@@ -111,10 +112,10 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
 
     private void goToMainAppAsGuide(Guide guide) {
         //todo: find out what data should be pass trow to next screen
-        //Bundle guideBumdle = new Bundle();
-        //guideBumdle.putBundle("guideObj",guide);
+        Bundle guideBundle = new Bundle();
+        guideBundle.putSerializable("guideObj",guide.getClass());
         Intent moveToMainAppAsGuide = new Intent( this, MainGuideActivity.class );
-
+        moveToMainAppAsGuide.putExtras(guideBundle);
         startActivity( moveToMainAppAsGuide );
         finish();
     }
@@ -122,11 +123,13 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
     private void addNewGuideDataToFireBase(Guide guide) {
 
         try {
-            myRef.setValue(guide);
-            Toast.makeText(this,"send guide to database",Toast.LENGTH_LONG).show();
+            myGuideRef.child("guides").child(guideUID).setValue(guide);
+
+            //myRef.setValue(guide);
+            Toast.makeText(this,"send guide obj to firebase",Toast.LENGTH_LONG).show();
         }
         catch (Exception e){
-            Log.e(TAG, "addNewGuideDataToFireBase: ");
+            Log.e(TAG, "guide obj did not write");
         }
 
     }
@@ -145,7 +148,7 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
                 addNewGroupToFireBase(guideData);
                 break;
             case R.id.addNewGuideBtn:
-                Toast.makeText(this,"add new guide to fire base",Toast.LENGTH_LONG).show();
+         //       Toast.makeText(this,"add new guide to fire base",Toast.LENGTH_LONG).show();
                 addNewGuideDataToFireBase(guide);
                 break;
             case R.id.startTourGuideBtn:

@@ -27,7 +27,7 @@ import static android.widget.Toast.makeText;
 
 public class FirstSignIn extends AppCompatActivity {
     private final static String TAG="FirstSignIn";
-    private BasicAppUser appUser;
+    private BasicAppUser basicUser;
 
     @BindView(R.id.imageViewLogo)
     ImageView logo;
@@ -41,13 +41,14 @@ public class FirstSignIn extends AppCompatActivity {
     DatabaseReference myFirstSignInRef = database.getReference("signedin");
 
 
-//local sher pref
+    //local sher pref
 
     private SharedPreferences SPSaveUserDataToLocalStorage;
     SharedPreferences.Editor SPEditor;
 
     List<AuthUI.IdpConfig> providers = Arrays.asList(
             new AuthUI.IdpConfig.EmailBuilder().build() );
+
 
 
     @Override
@@ -73,11 +74,11 @@ public class FirstSignIn extends AppCompatActivity {
     }
 
     private void crateAppUser(FirebaseUser user) {
-        appUser = new BasicAppUser();
-        appUser.setuId(user.getUid());
-        appUser.setFullName(user.getDisplayName());
-        appUser.setEmailAddress(user.getEmail());
-        appUser.setPhoneNumber(user.getPhoneNumber());
+        basicUser = new BasicAppUser();
+        basicUser.setuId(user.getUid());
+        basicUser.setFullName(user.getDisplayName());
+        basicUser.setEmailAddress(user.getEmail());
+        basicUser.setPhoneNumber(user.getPhoneNumber());
     }
 
 
@@ -107,8 +108,13 @@ public class FirstSignIn extends AppCompatActivity {
         regBundle.putString( "user email",userEmail );
         regBundle.putString( "phone number",userPhoneNumber );
          //saves  user registration data to local file and to firebase
+        basicUser.setuId(uId);
+        basicUser.setFullName(displayName);
+        basicUser.setEmailAddress(userEmail);
+        basicUser.setPhoneNumber(userPhoneNumber);
+
         saveTheDataToLocalSherdPref(regBundle);
-        saveNewUserRegDataToFireBase(appUser);
+        saveNewUserRegDataToFireBase(basicUser);
         //build and run move to next page intent
         Intent regActivity = new Intent( this, RegClass.class ) ;
         regActivity.putExtras( regBundle );
@@ -117,7 +123,7 @@ public class FirstSignIn extends AppCompatActivity {
     }
     //save data to fire base
     //todo: make it work with ReadWrit Class
-    //todo: save the data as java object
+
     private void saveNewUserRegDataToFireBase(BasicAppUser appUser) {
         myFirstSignInRef.child("appusers").child(uId.toString()).setValue(appUser);
     }
@@ -131,6 +137,8 @@ public class FirstSignIn extends AppCompatActivity {
                 // Successfully signed in
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
               //  makeText( this, "made a successful login "+user.getDisplayName().toString(), Toast.LENGTH_LONG ).show();
+                //todo: build welcome X user screen before move in n to next activity
+                buildWelcomeView(user);
                 goToNextRegActivity(user);
                 // ...
             } else {
@@ -143,6 +151,12 @@ public class FirstSignIn extends AppCompatActivity {
             }
         }
     }
+
+    private void buildWelcomeView(FirebaseUser user) {
+        makeText( this, "build hello  "+uId+" to shepherd app", Toast.LENGTH_LONG ).show();
+        //build pop up massage screen with hello user
+    }
+
     private void saveTheDataToLocalSherdPref(Bundle userdata) {
 //todo:make it work with class instead of method
     /*    SharedPref.write(SharedPref.UID,userdata.get("user id").toString());

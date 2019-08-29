@@ -10,15 +10,15 @@ import lombok.extern.java.Log;
 
 public class BasicAppUser {
 
-    public String uId,fullName,emailAddress,phoneNumber;
-    public Double lon,lat;
+    private String uId,fullName,emailAddress,phoneNumber;
+    private Double lon,lat;
 
 
-    public BasicAppUser() {
+    BasicAppUser() {
 
     }
 
-    public BasicAppUser(String uId, String fullName, String emailAddress, String phoneNumber, Double lon, Double lat) {
+    BasicAppUser(String uId, String fullName, String emailAddress, String phoneNumber, Double lon, Double lat) {
         this.uId = uId;
         this.fullName = fullName;
         this.emailAddress = emailAddress;
@@ -30,7 +30,7 @@ public class BasicAppUser {
     public String getuId() { return uId; }
 
 
-    public void setuId(String uId) {
+    void setuId(String uId) {
         this.uId = uId;
     }
 
@@ -46,7 +46,7 @@ public class BasicAppUser {
         return emailAddress;
     }
 
-    public void setEmailAddress(String emailAddress) {
+    void setEmailAddress(String emailAddress) {
         this.emailAddress = emailAddress;
     }
 
@@ -54,7 +54,7 @@ public class BasicAppUser {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 

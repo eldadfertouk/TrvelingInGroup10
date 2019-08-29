@@ -37,7 +37,7 @@ import lombok.extern.java.Log;
 
 public class Traveler extends BasicAppUser {
 
-    private BasicAppUser user = new BasicAppUser();
+    private BasicAppUser basicUser = new BasicAppUser();
 
     private int numberToAdd;
     private String fullName,displayName,dateOfBirth,userEmail,userUid,travelerGroup,travelerImageRefPath,travelerPhoneNumber;
@@ -151,11 +151,11 @@ public class Traveler extends BasicAppUser {
     }
 
     public BasicAppUser getUser() {
-        return user;
+        return basicUser;
     }
 
     public void setUser(BasicAppUser user) {
-        this.user = user;
+        this.basicUser = user;
     }
 
     public int getNumberToAdd() {

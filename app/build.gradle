@@ -36,14 +36,19 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0-alpha02'
     implementation 'com.google.firebase:firebase-auth:19.0.0'
     implementation 'com.firebaseui:firebase-ui-auth:5.0.0'
-    implementation 'com.firebaseui:firebase-ui-database:4.0.0'
+    implementation 'com.firebaseui:firebase-ui-database:5.0.0'
     compileOnly 'org.projectlombok:lombok:1.18.8'
     annotationProcessor 'org.projectlombok:lombok:1.18.8'
     implementation 'com.jakewharton:butterknife:10.1.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0-beta03'
     implementation 'com.google.android.material:material:1.1.0-alpha09'
-    implementation 'com.firebaseui:firebase-ui-auth:5.0.0'
+    // FirebaseUI for Cloud Storage
+    implementation 'com.firebaseui:firebase-ui-storage:5.0.0'
+    // FirebaseUI for Firebase Realtime Database
+    implementation 'com.firebaseui:firebase-ui-database:5.0.0'
+    // FirebaseUI for Cloud Firestore
+    implementation 'com.firebaseui:firebase-ui-firestore:5.0.0'
     implementation 'com.google.firebase:firebase-dynamic-links:19.0.0'
     implementation 'com.google.firebase:firebase-database:19.0.0'
     implementation 'com.google.android.gms:play-services-location:17.0.0'

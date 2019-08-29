@@ -31,21 +31,19 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
 
     //fire base settings
     FirebaseDatabase database = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = database.getReference("travelers");
+    DatabaseReference myTravelerRef = database.getReference("travelers");
 
     //sharedpref
-    //todo:make it work with ser class
+    //todo:make it work with shared class
     private SharedPreferences SPToLocalStorage;
     SharedPreferences.Editor SPEditor;
-
     //page create
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_traveler_reg );
-
-
         Intent travelerReg = getIntent();
+
         //travelerReg.getBundleExtra("user id");
         String userId =  travelerReg.getStringExtra("user id");
         String displayName = travelerReg.getStringExtra("display name");
@@ -93,7 +91,8 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
 
     //buttons of page
     public void onClick(View view) {
-        Bundle userData = getIntent().getExtras();
+        Intent travelerRegData = getIntent();
+        Bundle travelerData = getIntent().getExtras();
         switch (view.getId()) {
             case R.id.join_to_this_group:
                 makeText( this, "join  this group ", Toast.LENGTH_LONG ).show();
@@ -101,13 +100,21 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
                 break;
             case R.id.sendTravelRegDataBtn:
                 makeText( this, "send traveler to firebase  ", Toast.LENGTH_LONG ).show();
-                sendTravelerDataToFireBase( userData );
+                updateTravelerDataOnFireBase(travelerRegData);
+                //sendTravelerDataToFireBase( userData );
                 break;
             case R.id.startTravelBtn:
                 makeText( this, "go to start  ", Toast.LENGTH_LONG ).show();
-                goToMainAppActivity( userData );
+                goToMainAppActivity( travelerData );
                 break;
         }
+
+    }
+
+    private void updateTravelerDataOnFireBase(Intent travelerRegData) {
+        String travelerUID =travelerRegData.getStringExtra("user id");
+        myTravelerRef.child("guides").child(travelerUID).setValue(traveler);
+        //myTravelerRef.setValue(userData);
 
     }
 
@@ -225,8 +232,7 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
         }
     }
     //save traveler date to firebase
-    private void sendTravelerDataToFireBase(Bundle userData) {
-        myRef.setValue(userData);
+    private void sendTravelerDataToFireBase(Traveler traveler) {
 
     }
     //start application as traveler
