@@ -12,14 +12,14 @@ public class BasicLocationContent {
     /**
      * An array of sample (content) items.
      */
-    public static final List<BasicLocationItem> ITEMS = new ArrayList<BasicLocationItem>();
+    public static final List<BasicLocationItem> LOCATION_ITEMS = new ArrayList<BasicLocationItem>();
 
     /**
      * A map of sample (content) items, by ID.
      */
-    public static final Map<String, BasicLocationItem> ITEM_MAP = new HashMap<String, BasicLocationItem>();
+    public static final Map<String, BasicLocationItem> LOCATION_ITEM_MAP = new HashMap<String, BasicLocationItem>();
 
-    private static final int COUNT = 25;
+    private static final int COUNT = 50;
 
     static {
         // Add some sample items.
@@ -29,8 +29,8 @@ public class BasicLocationContent {
     }
 
     private static void addItem(BasicLocationItem item) {
-        ITEMS.add( item );
-        ITEM_MAP.put( item.id, item );
+        LOCATION_ITEMS.add( item );
+        LOCATION_ITEM_MAP.put( item.id, item );
     }
 
     private static BasicLocationItem createLocationItem(int position) {

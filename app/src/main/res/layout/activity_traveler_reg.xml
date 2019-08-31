@@ -6,12 +6,12 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:visibility="visible"
-    tools:context=".TravelerRegActivity"
+    tools:context=".activitys.TravelerRegActivity"
     tools:visibility="visible">
 
     <fragment
         android:id="@+id/listOfGroupFrag"
-        android:name="com.example.trvelingingroup10.GroupFragment"
+        android:name="com.example.trvelingingroup10.Groups.GroupFragment"
         android:layout_width="398dp"
         android:layout_height="389dp"
         android:onClick="onClick"
@@ -92,17 +92,6 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="336dp" />
 
-    <EditText
-        android:id="@+id/Birth_Date_Fld"
-        android:layout_width="301dp"
-        android:layout_height="32dp"
-        android:ems="10"
-        android:inputType="date|datetime"
-        app:layout_constraintBottom_toTopOf="@+id/guideline63"
-        app:layout_constraintEnd_toStartOf="@+id/guideline59"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline62" />
-
     <Button
         android:id="@+id/sendTravelRegDataBtn"
         android:layout_width="0dp"
@@ -117,9 +106,11 @@
     <CheckBox
         android:id="@+id/is_Need_Help"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/needhelp"
-        app:layout_constraintEnd_toStartOf="@+id/guideline67"
+        app:layout_constraintBottom_toTopOf="@+id/guideline65"
+        app:layout_constraintEnd_toStartOf="@+id/guideline68"
+        app:layout_constraintStart_toStartOf="@+id/guideline58"
         app:layout_constraintTop_toTopOf="@+id/guideline63" />
 
     <TextView
@@ -138,31 +129,21 @@
     <CheckBox
         android:id="@+id/is_Deff_CB"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/isdeff"
-        app:layout_constraintBottom_toTopOf="@+id/guideline65"
-        app:layout_constraintEnd_toStartOf="@+id/guideline59"
-        app:layout_constraintStart_toEndOf="@+id/is_Need_Help"
-        app:layout_constraintTop_toTopOf="@+id/guideline63" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline62"
+        app:layout_constraintEnd_toStartOf="@+id/guideline68"
+        app:layout_constraintStart_toStartOf="@+id/guideline58"
+        app:layout_constraintTop_toTopOf="@+id/guideline61" />
 
     <CheckBox
         android:id="@+id/is_Kosher_CB"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:text="@string/isKosher"
-        app:layout_constraintEnd_toStartOf="@+id/guideline68"
-        app:layout_constraintTop_toTopOf="@+id/guideline63" />
-
-    <EditText
-        android:id="@+id/passwordFld"
-        android:layout_width="302dp"
-        android:layout_height="40dp"
-        android:ems="10"
-        android:hint="@string/fillInPassword"
-        android:inputType="textPassword"
         app:layout_constraintBottom_toTopOf="@+id/guideline62"
         app:layout_constraintEnd_toStartOf="@+id/guideline59"
-        app:layout_constraintStart_toStartOf="@+id/guideline58"
+        app:layout_constraintStart_toStartOf="@+id/guideline67"
         app:layout_constraintTop_toTopOf="@+id/guideline61" />
 
     <androidx.constraintlayout.widget.Guideline
@@ -230,32 +211,33 @@
 
     <CheckBox
         android:id="@+id/is_Realigns_CB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:text="@string/isreligus"
-        app:layout_constraintBottom_toTopOf="@+id/guideline56"
-        app:layout_constraintEnd_toStartOf="@+id/guideline68"
-        app:layout_constraintStart_toStartOf="@+id/guideline58"
-        app:layout_constraintTop_toTopOf="@+id/guideline65" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline62"
+        app:layout_constraintEnd_toStartOf="@+id/guideline67"
+        app:layout_constraintStart_toStartOf="@+id/guideline68"
+        app:layout_constraintTop_toTopOf="@+id/guideline61"
+        tools:text="@string/very_realigns" />
 
     <CheckBox
         android:id="@+id/is_Blaind_CB"
-        android:layout_width="131dp"
-        android:layout_height="33dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:text="@string/isblainde"
-        app:layout_constraintBottom_toTopOf="@+id/guideline56"
-        app:layout_constraintEnd_toStartOf="@+id/guideline59"
-        app:layout_constraintStart_toStartOf="@+id/guideline67"
-        app:layout_constraintTop_toTopOf="@+id/guideline65" />
+        app:layout_constraintBottom_toTopOf="@+id/guideline63"
+        app:layout_constraintEnd_toStartOf="@+id/guideline68"
+        app:layout_constraintStart_toStartOf="@+id/guideline58"
+        app:layout_constraintTop_toTopOf="@+id/guideline62" />
 
     <CheckBox
         android:id="@+id/is_Miner_CB"
-        android:layout_width="80dp"
-        android:layout_height="30dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:text="@string/miner"
         app:layout_constraintBottom_toTopOf="@+id/guideline56"
-        app:layout_constraintEnd_toStartOf="@+id/guideline67"
-        app:layout_constraintStart_toStartOf="@+id/guideline68"
+        app:layout_constraintEnd_toStartOf="@+id/guideline68"
+        app:layout_constraintStart_toStartOf="@+id/guideline58"
         app:layout_constraintTop_toTopOf="@+id/guideline65" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

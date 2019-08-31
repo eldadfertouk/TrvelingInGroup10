@@ -1,6 +1,6 @@
 package com.example.trvelingingroup10.content;
 
-import com.example.trvelingingroup10.Traveler;
+import com.example.trvelingingroup10.travelers.Traveler;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,14 +23,14 @@ public class TravelerContent extends Traveler {
     /**
      * An array of sample (content) items.
      */
-    public static final List<TravelerItem> ITEMS = new ArrayList<TravelerItem>();
+    public static final List<TravelerItem> TRAVELER_ITEMS = new ArrayList<TravelerItem>();
 
     /**
      * A map of sample (content) items, by ID.
      */
-    public static final Map<String, TravelerItem> ITEM_MAP = new HashMap<String, TravelerItem>();
+    public static final Map<String, TravelerItem> TRAVELER_ITEM_MAP = new HashMap<String, TravelerItem>();
 
-    private static final int COUNT = 25;
+    private static final int COUNT = 15;
 
     static {
         // Add some sample items.
@@ -44,8 +44,8 @@ public class TravelerContent extends Traveler {
     }
 
     private static void addItem(TravelerItem travelerItem) {
-        ITEMS.add( travelerItem );
-        ITEM_MAP.put( travelerItem.travelerId, travelerItem );
+        TRAVELER_ITEMS.add( travelerItem );
+        TRAVELER_ITEM_MAP.put( travelerItem.travelerId, travelerItem );
     }
 
     private static TravelerItem createTravelerItem(int position) {

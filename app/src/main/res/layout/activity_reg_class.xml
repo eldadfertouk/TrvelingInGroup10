@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".RegClass">
+    tools:context=".activitys.RegClass">
 
     <ImageView
         android:id="@+id/imageView2"
@@ -35,14 +35,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="15dp" />
+        app:layout_constraintGuide_begin="5dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline42"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="210dp" />
+        app:layout_constraintGuide_begin="200dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline43"
@@ -63,32 +63,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="249dp" />
+        app:layout_constraintGuide_begin="250dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline46"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="305dp" />
+        app:layout_constraintGuide_begin="300dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline47"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="352dp" />
+        app:layout_constraintGuide_begin="350dp" />
 
     <TextView
         android:id="@+id/userUidFld"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:text="@string/user_uid"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/guideline45"
-        app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintEnd_toStartOf="@+id/locationFld"
         app:layout_constraintStart_toStartOf="@+id/guideline44"
-        app:layout_constraintTop_toTopOf="@+id/guideline42" />
+        app:layout_constraintTop_toTopOf="@+id/guideline42"
+        app:layout_constraintVertical_bias="0.516" />
 
     <EditText
         android:id="@+id/phoneNumberFld"
@@ -109,34 +111,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="384dp" />
+        app:layout_constraintGuide_begin="400dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline49"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="454dp" />
+        app:layout_constraintGuide_begin="450dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline50"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="510dp" />
+        app:layout_constraintGuide_begin="500dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline51"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="566dp" />
+        app:layout_constraintGuide_begin="600dp" />
 
     <EditText
         android:id="@+id/displayNameFld"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/nick_name"
         android:inputType="textPersonName"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/guideline47"
@@ -146,22 +149,23 @@
 
     <EditText
         android:id="@+id/locationFld"
-        android:layout_width="326dp"
-        android:layout_height="25dp"
+        android:layout_width="233dp"
+        android:layout_height="21dp"
         android:ems="10"
         android:hint="location"
         android:inputType="phone"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/guideline48"
+        app:layout_constraintBottom_toTopOf="@+id/guideline45"
         app:layout_constraintEnd_toStartOf="@+id/guideline43"
-        app:layout_constraintStart_toStartOf="@+id/guideline44"
-        app:layout_constraintTop_toTopOf="@+id/guideline47" />
+        app:layout_constraintStart_toStartOf="@+id/guideline55"
+        app:layout_constraintTop_toTopOf="@+id/guideline42" />
 
     <EditText
         android:id="@+id/firstNameFld"
         android:layout_width="333dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/first_name"
         android:inputType="textPersonName"
         android:text="@string/first_name"
         android:visibility="visible"
@@ -175,6 +179,7 @@
         android:layout_width="351dp"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="@string/last_name"
         android:inputType="textPersonName"
         android:text="@string/last_name"
         android:visibility="visible"
@@ -202,7 +207,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="558dp" />
+        app:layout_constraintGuide_begin="550dp" />
 
     <Button
         android:id="@+id/guideRegBtn"
@@ -250,5 +255,17 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="106dp" />
+
+    <EditText
+        android:id="@+id/date_of_birth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/birth_date"
+        android:inputType="date"
+        app:layout_constraintBottom_toTopOf="@+id/guideline48"
+        app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintStart_toStartOf="@+id/guideline44"
+        app:layout_constraintTop_toBottomOf="@+id/displayNameFld" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

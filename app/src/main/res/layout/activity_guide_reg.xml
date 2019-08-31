@@ -5,7 +5,7 @@
     android:id="@+id/regGuideContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".GuideRegActivity"
+    tools:context=".activitys.GuideRegActivity"
     tools:visibility="visible">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -190,7 +190,7 @@
 
     <fragment
         android:id="@+id/travelersListFrag"
-        android:name="com.example.trvelingingroup10.TravelerFragment"
+        android:name="com.example.trvelingingroup10.travelers.TravelerFragment"
         android:layout_width="411dp"
         android:layout_height="403dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline30"

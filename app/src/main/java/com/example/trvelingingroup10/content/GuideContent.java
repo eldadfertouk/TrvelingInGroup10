@@ -1,6 +1,6 @@
 package com.example.trvelingingroup10.content;
 
-import com.example.trvelingingroup10.Guide;
+import com.example.trvelingingroup10.guides.Guide;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,14 +23,14 @@ public class GuideContent extends Guide {
     /**
      * An array of guides items.
      */
-    public static final List<GuideItem> ITEMS = new ArrayList<GuideItem>();
+    public static final List<GuideItem> GUIDE_ITEMS = new ArrayList<GuideItem>();
 
     /**
      * A map of sample guide items, by ID.
      */
-    public static final Map<String, GuideItem> ITEM_MAP = new HashMap<String, GuideItem>();
+    public static final Map<String, GuideItem> GUIDE_ITEM_MAP = new HashMap<String, GuideItem>();
 
-    private static final int COUNT = 25;
+    private static final int COUNT = 15;
 
     static {
         // Add some sample items.
@@ -40,8 +40,8 @@ public class GuideContent extends Guide {
     }
 
     private static void addItem(GuideItem guideItem) {
-        ITEMS.add( guideItem );
-        ITEM_MAP.put( guideItem.guideId, guideItem );
+        GUIDE_ITEMS.add( guideItem );
+        GUIDE_ITEM_MAP.put( guideItem.guideId, guideItem );
     }
 
     private static GuideItem createGuideItem(int position) {

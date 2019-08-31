@@ -6,12 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context=".MainGuideActivity"
+    tools:context=".activitys.MainGuideActivity"
     tools:showIn="@layout/app_bar_main">
 
     <fragment
         android:id="@+id/mainAppMapfrag"
-        android:name="com.example.trvelingingroup10.MapFragment"
+        android:name="com.example.trvelingingroup10.map_and_gps.MapFragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"

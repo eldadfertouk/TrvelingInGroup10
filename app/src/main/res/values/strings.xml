@@ -4,9 +4,9 @@
     <string name="guide">מדריך</string>
     <string name="traveler">מטייל</string>
     <string name="title_activity_guide_reg">רישום מדריכים</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_home">מסך ראשי</string>
+    <string name="title_dashboard">לוח שליטה</string>
+    <string name="title_notifications">התראות</string>
     <string name="title_activity_traveler_reg">רישום מטיילים</string>
     <string name="traveler_reg_page_masage">מלא פרטים בהתאם לנדרש</string>
     <string name="send_data">שמור</string>
@@ -118,6 +118,8 @@
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_traveler_activity_main">MainTravelerActivity</string>
+    <string name="title_guide_activity_main">MainGudieActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Traveling Group</string>
@@ -141,7 +143,7 @@
     <string name="title_user_list">users</string>
     <string name="title_user_detail">User Detail</string>
     <string name="user_uid">מזהה משתמש</string>
-    <string name="travele_reg_massage">מלא פרטים בהתאם לנדרש</string>
+    <string name="travele_reg_massage">אנא דווח על כל בעיה או צורך</string>
     <string name="show_guides">הצג מדריכים</string>
     <string name="show_my_home">הצג בית-מלון</string>
     <string name="show_list_of_groups">הצג קבוצות</string>
@@ -185,4 +187,28 @@
     <string name="first_name">שם פרטי</string>
     <string name="email_address">כתובת דואר אלקטרוני</string>
     <string name="display_name">שם תצוגה</string>
+    <string name="monitor_level">טווח פיקוח</string>
+    <string name="monitor_level_c">פיקוח עדין</string>
+    <string name="monitor_level_b">פיקוח קרוב</string>
+    <string name="monitor_level_a">פיקוח צמוד</string>
+    <string name="group_name">שם הקבוצה</string>
+    <string name="nick_name">שם תצוגה</string>
+    <string name="birth_date">תאריך לידה</string>
+    <string name="very_realigns">שומר שבת</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_guides_desh_board">GuidesDeshBoardActivity</string>
+    <string name="create_new_tour">טיול חדש</string>
+    <string name="add_tours_screen">הוספת טיולים חדשים</string>
+    <string name="title_activity_tours_scrolling">ToursScrollingActivity</string>
+    <string name="add_tour">הוספת טיול</string>
+    <string name="tours_list">הצג רשימת טיולים</string>
+    <string name="show_tours_list">לרשימת הטיולים</string>
+    <string name="add_new_tour">הוספת טיול</string>
+    <string name="answers_and_qustions">שאלות ותשובות</string>
+    <string name="send_question_to_guide">שאל את המדריך כל שאלה שתרצה</string>
+    <string name="ask_question">שלח שאלה</string>
+    <string name="question">שאלה</string>
+    <string name="answer">תשובה</string>
 </resources>
