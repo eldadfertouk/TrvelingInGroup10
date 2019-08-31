@@ -49,7 +49,7 @@
         </activity>
         <activity
             android:name=".tours.AddShowToursActivity"
-            android:label="@string/title_activity_tours_scrolling"
+
             android:parentActivityName=".activitys.MainGuideActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -62,14 +62,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".GuidesDeshBoardActivity"
-            android:label="@string/title_activity_guides_desh_board"
-            android:parentActivityName=".activitys.MainGuideActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.trvelingingroup10.activitys.MainGuideActivity" />
-        </activity>
+
         <activity
             android:name=".app_users.UserListActivity"
             android:label="@string/title_user_list"
@@ -215,6 +208,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".utils.SharedPref" />
+
+        <service android:name=".ask_and_answer.ServiceMessage" />
     </application>
 
 </manifest>

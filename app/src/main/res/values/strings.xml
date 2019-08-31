@@ -209,6 +209,10 @@
     <string name="answers_and_qustions">שאלות ותשובות</string>
     <string name="send_question_to_guide">שאל את המדריך כל שאלה שתרצה</string>
     <string name="ask_question">שלח שאלה</string>
+    <string name="write_question">כתוב כאן את שאלתך ושלח למדריך</string>
     <string name="question">שאלה</string>
     <string name="answer">תשובה</string>
+    <string name="answers_and_questions">הצג תשובות</string>
+    <string name="save_and_update_traveler_data">שמירה-עדכון פרטי מטייל</string>
+    <string name="start_tour">לטיול</string>
 </resources>

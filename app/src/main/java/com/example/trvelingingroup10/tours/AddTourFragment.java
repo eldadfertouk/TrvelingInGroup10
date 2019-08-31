@@ -50,19 +50,28 @@ public class AddTourFragment extends Fragment implements Serializable {
 
         return view;
     }
+
+
+
+
     private void initRecyclerView(){
         LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         layoutManager.setSmoothScrollbarEnabled(true);
-        RecyclerView recyclerView  = view.findViewById(R.id.list_of_tour_recycler_view );
+        RecyclerView recyclerView = view.findViewById(R.id.list_of_tour_recycler_view );
         recyclerView.setLayoutManager(layoutManager);
         RecyclerViewTours adapter = new RecyclerViewTours(tourClasses);
         recyclerView.setAdapter(adapter);
     }
+
+
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         this.context=context;
     }
+
+
 
     private void loadDataBase() {
         dateBase = FirebaseFirestore.getInstance();
@@ -70,6 +79,8 @@ public class AddTourFragment extends Fragment implements Serializable {
                 .setTimestampsInSnapshotsEnabled(true).build();
         dateBase.setFirestoreSettings(settings);
     }
+
+
 
     private void loadToursFromDataBase() {
     new Thread(new Runnable() {

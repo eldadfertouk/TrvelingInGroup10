@@ -2,17 +2,20 @@ package com.example.trvelingingroup10.tours;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
 import com.example.trvelingingroup10.R;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
-public class AddShowToursActivity extends AppCompatActivity implements View.OnClickListener {
+public class AddShowToursActivity extends AppCompatActivity  {
 
     private FirebaseFirestore database;
     private AddTourFragment addTourFragment;
@@ -30,10 +33,30 @@ public class AddShowToursActivity extends AppCompatActivity implements View.OnCl
         loadDataBase();
 
     }
-
     private void setTheFragmentSwitch() {
+        BottomNavigationView bottomNavigationView=findViewById(R.id.answer_question_navigation);
 
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
 
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+
+                switch (item.getItemId())
+                {
+                    case R.id.add_new_tour:
+                        transaction.replace(R.id.view_changer_list_or_add_tour,addTourFragment).commit();
+
+                        break;
+                    case R.id.show_list_of_tours:
+                        transaction.replace(R.id.view_changer_list_or_add_tour,showTourListFragment).commit();
+
+                        break;
+                }
+
+                return true;
+            }
+        });
     }
 
     private void loadDataBase() {
@@ -44,17 +67,4 @@ public class AddShowToursActivity extends AppCompatActivity implements View.OnCl
         database.setFirestoreSettings(settings);
     }
 
-    @Override
-    public void onClick(View v) {
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        int id = v.getId();
-        switch (id){
-            case R.id.add_new_tour_btn:
-                transaction.replace(R.id.view_changer_list_or_add_tour, addTourFragment).commit();
-                break;
-            case R.id.show_list_btn:
-                transaction.replace(R.id.view_changer_list_or_add_tour, showTourListFragment).commit();
-                break;
-        }
-    }
 }

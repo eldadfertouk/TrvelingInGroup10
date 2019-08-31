@@ -14,8 +14,6 @@ import com.google.firebase.firestore.FirebaseFirestoreSettings;
 
 public class AskAndAnswerActivity extends AppCompatActivity {
 
-
-
     private FirebaseFirestore database ;
     private AnswerFragment answerFragment;
     private QuestionFragment questionFragment;
@@ -24,30 +22,28 @@ public class AskAndAnswerActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ask_and_answer);
-        answerFragment=new AnswerFragment();
-        questionFragment=new QuestionFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.anserws_qusetion_recycler_view,questionFragment).commit();
-
+        answerFragment = new AnswerFragment();
+        questionFragment = new QuestionFragment();
+        getSupportFragmentManager().beginTransaction().
+                replace(R.id.answers_question_recycler_view,questionFragment).commit();
         loadDataBase();
         setTheFragmentSwitch();
     }
     private void setTheFragmentSwitch() {
+
         BottomNavigationView bottomNavigationView=findViewById(R.id.answer_question_navigation);
 
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-
-                switch (item.getItemId())
-                {
+                switch (item.getItemId()) {
                     case R.id.ask_question:
-                        transaction.replace(R.id.answer_to_question_change,answerFragment).commit();
+                        transaction.replace(R.id.answer_to_question_change, answerFragment).commit();
 
                         break;
                     case R.id.show_answers:
-                        transaction.replace(R.id.answer_to_question_change,questionFragment).commit();
+                        transaction.replace(R.id.answer_to_question_change, questionFragment).commit();
 
                         break;
                 }
@@ -57,12 +53,7 @@ public class AskAndAnswerActivity extends AppCompatActivity {
         });
     }
 
-
-
     private void loadDataBase() {
-        // TODO: 13/12/2018 מתודה שמאתחלת את האובייקט שלנו מסוג פיירבייס עם ברירת מחדל
-        //  TODO:שמאפשרת למשתמש לשמור נתונים ולראות אותם
-        // TODO: 03/01/2019 גם כאשר אין למשתמש חיבור לאינטרנט
 
         database = FirebaseFirestore.getInstance();
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()

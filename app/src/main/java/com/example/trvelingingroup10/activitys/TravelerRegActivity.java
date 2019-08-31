@@ -15,6 +15,7 @@ import com.example.trvelingingroup10.Groups.GroupFragment;
 import com.example.trvelingingroup10.R;
 import com.example.trvelingingroup10.content.GroupContent;
 import com.example.trvelingingroup10.travelers.Traveler;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -43,8 +44,8 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_traveler_reg );
         Intent travelerReg = getIntent();
+        BottomNavigationView navView = findViewById( R.id.nav_view );
 
-        //travelerReg.getBundleExtra("user id");
         String userId =  travelerReg.getStringExtra("user id");
         String displayName = travelerReg.getStringExtra("display name");
         String userEmail = travelerReg.getStringExtra("user email");

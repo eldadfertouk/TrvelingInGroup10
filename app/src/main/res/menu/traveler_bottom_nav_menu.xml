@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/save_update_traveler_data"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="@string/save_and_update_traveler_data" />
+
+    <item
+        android:id="@+id/start_tour"
+        android:icon="@drawable/travelersmall"
+
+        android:title="@string/start_tour" />
+
+
+
+</menu>

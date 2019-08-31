@@ -11,6 +11,9 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.trvelingingroup10.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -28,22 +31,20 @@ public class QuestionFragment extends Fragment {
     private Context context;
 
 
-
-
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view=inflater.inflate(R.layout.fragment_question, container, false);
-
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        
+        view = inflater.inflate(R.layout.fragment_question, container, false);
         loadDataBase();
-        setButtonLiseners();
+        setButtonListeners();
         return view;
     }
 
 
-
     private void loadDataBase() {
-        // TODO: 13/12/2018 מתודה שמאתחלת את האובייקט שלנו מסוג פיירבייס עם הגדרות נחוצות
         database = FirebaseFirestore.getInstance();
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
                 .setTimestampsInSnapshotsEnabled(true)
@@ -53,21 +54,20 @@ public class QuestionFragment extends Fragment {
     }
 
 
-
-
-    private void setButtonLiseners() {
-        // TODO: 13/12/2018 איתחול של כפתור שבעת לחיצה עליו נשלח את השאלה שלנו אל השרת
-        Button button=view.findViewById(R.id.send_me_question_firebase);
+    private void setButtonListeners() {
+        Button button=view.findViewById(R.id.send_my_question_firebase);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final EditText text = view.findViewById(R.id.qestion_to_send_firebase);
+                final EditText text = view.findViewById(R.id.qestion_to_send_firebase_txt_fld);
 
-                database.collection("studentqestions").document(""+new Date()).set(new AnswerQuestionClass("ממתין לתשובה",text.getText().toString(),false)).addOnCompleteListener(new OnCompleteListener<Void>() {
+                database.collection("travelersquestions").document(""+new Date())
+                        .set(new AnswerQuestionClass("ממתין לתשובה",text.getText()
+                                .toString(),false)).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
 
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(context,"שאלה נוספה אל מאגר השאלות.",Toast.LENGTH_LONG).show();
+                        Toast.makeText(context,"השאלה נשלחה למדריך ותענה בקרוב.",Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -79,7 +79,6 @@ public class QuestionFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-
         this.context=context;
     }
 }

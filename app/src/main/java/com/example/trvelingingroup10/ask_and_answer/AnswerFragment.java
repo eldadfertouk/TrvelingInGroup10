@@ -21,38 +21,31 @@ import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-
+/**
+ * A simple {@link Fragment} subclass.
+ */
 public class AnswerFragment extends Fragment implements Serializable {
-
 
     private FirebaseFirestore database ;
     private ArrayList<AnswerQuestionClass> answerQuestionClasses;
     private Context context;
     private View view;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view=inflater.inflate(R.layout.fragment_answer, container, false);
-
-
         loadDataBase();
-        loadtheQestions();
-
+        loadTheQuestions();
         return view;
     }
 
-
-
     private void initRecyclerView(){
 
-// TODO: 15/12/2018 איתחול של אובייקט מסוג recycelviev
-        // TODO: 15/12/2018 אשר תפקידו הוא להציג לנו כמות מידע מסויימת לפי תבנית שהגדרנו מראש
         LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         layoutManager.setSmoothScrollbarEnabled(true);
 
-        RecyclerView recyclerView = view.findViewById(R.id.anserws_qusetion_recycler_view);
+        RecyclerView recyclerView = view.findViewById(R.id.show_answer_in_recyclerview);
         recyclerView.setLayoutManager(layoutManager);
         RecyclerViewQuestionAnswer adapter = new RecyclerViewQuestionAnswer(answerQuestionClasses);
         recyclerView.setAdapter(adapter);
@@ -63,12 +56,11 @@ public class AnswerFragment extends Fragment implements Serializable {
     public void onAttach(Context context) {
         super.onAttach(context);
         this.context=context;
-        // TODO: 15/12/2018  זוהי המתודה הראשונה שנקראת לעבודה כאשר אנחנו נפעיל פרגמנט חדש ואנחנו בעצם נשתמש באובייקט context
-        // TODO: 15/12/2018 על מנת לקשר את הפרגמנט שלנו אל הפעילות המכילה אותו
+
     }
 
     private void loadDataBase() {
-        // TODO: 13/12/2018 מתודה שמאתחלת את האובייקט שלנו מסוג פיירבייס עם הגדרות נחוצות
+
         database = FirebaseFirestore.getInstance();
         FirebaseFirestoreSettings settings = new FirebaseFirestoreSettings.Builder()
                 .setTimestampsInSnapshotsEnabled(true)
@@ -77,25 +69,24 @@ public class AnswerFragment extends Fragment implements Serializable {
 
     }
 
-    private void loadtheQestions() {
+    private void loadTheQuestions(){
         new Thread(new Runnable() {
             @Override
             public void run() {
-                // TODO: 15/12/2018 כאן אנחנו ניגשים אל האוסף שקוראים לו studentqestions
-                // TODO: 15/12/2018 ולוקחים את כל השאלות שנשאלו וטוענים אותם אל תוך אובייקט מסוג מחלקת תשובות שזוהי מחלקה שיצרתי והיא מייצגת לי אוייבקט של שאלה ותשובה
                 answerQuestionClasses =new ArrayList<>();
-                database.collection("travelersquestions").document("sf").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                database.collection("travelersquestions").document("sf").get().
+                        addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<DocumentSnapshot> task) {
 
                     }
                 });
-                database.collection("trvelersquestions").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                database.collection("trvelersquestions").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>(){
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        for (int i = 0; i <task.getResult().getDocuments().size() ; i++) {
+                        for (int i = 0; i < task.getResult().getDocuments().size(); i++) {
                             answerQuestionClasses.add(task.getResult().getDocuments().get(i).toObject(AnswerQuestionClass.class));
-                        }
+                    }
                         initRecyclerView();
                     }
                 });

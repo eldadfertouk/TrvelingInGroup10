@@ -16,12 +16,12 @@ import java.util.ArrayList;
 
 public class RecyclerViewQuestionAnswer extends RecyclerView.Adapter<RecyclerViewQuestionAnswer.ViewHolder> {
 
-    private ArrayList<AnswerQuestionClass> answerQuestionClasses;
+    public ArrayList<AnswerQuestionClass> answerQuestionClasses;
 
 
 
-    public RecyclerViewQuestionAnswer(ArrayList<AnswerQuestionClass>answerQestionClasses){
-        this.answerQuestionClasses=answerQestionClasses;
+    public RecyclerViewQuestionAnswer(ArrayList<AnswerQuestionClass> answerQuestionClasses){
+        this.answerQuestionClasses = answerQuestionClasses;
     }
 
     @NonNull

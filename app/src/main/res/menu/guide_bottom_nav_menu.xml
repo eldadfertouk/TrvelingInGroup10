@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/add_new_tour"
+        android:icon="@android:drawable/ic_input_add"
+        android:title="@string/add_tour" />
+
+    <item
+        android:id="@+id/show_list_of_tours"
+        android:icon="@android:drawable/ic_search_category_default"
+
+        android:title="@string/tours_list" />
+
+
+    <item
+        android:id="@+id/strat_tour"
+        android:icon="@drawable/guidesmall"
+
+        android:title="@string/start_travel" />
+
+</menu>

@@ -19,7 +19,7 @@ public class RecyclerViewTours extends RecyclerView.Adapter<RecyclerViewTours.Vi
 
     public ArrayList<Tour>tours;
 
-    public RecyclerViewTours(ArrayList<Tour>tours){
+    public RecyclerViewTours(ArrayList<Tour> tours){
         this.tours=tours;
     }
 

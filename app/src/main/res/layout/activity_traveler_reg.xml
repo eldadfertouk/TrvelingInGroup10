@@ -3,34 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/regTravelerContainer"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:visibility="visible"
     tools:context=".activitys.TravelerRegActivity"
     tools:visibility="visible">
 
-    <fragment
-        android:id="@+id/listOfGroupFrag"
-        android:name="com.example.trvelingingroup10.Groups.GroupFragment"
-        android:layout_width="398dp"
-        android:layout_height="389dp"
-        android:onClick="onClick"
-        app:layout_constraintBottom_toTopOf="@+id/guideline57"
-        app:layout_constraintEnd_toStartOf="@+id/guideline59"
-        app:layout_constraintStart_toStartOf="@+id/guideline58"
-        app:layout_constraintTop_toTopOf="@+id/guideline56"
-        tools:layout="@layout/fragment_group_list" />
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline21"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline56">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:background="?android:attr/windowBackground"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/guideline59"
-        app:layout_constraintStart_toStartOf="@+id/guideline58"
-        app:layout_constraintTop_toTopOf="@+id/guideline21"
-        app:menu="@menu/bottom_nav_menu" />
+        <fragment
+            android:id="@+id/listOfGroupFrag"
+            android:name="com.example.trvelingingroup10.Groups.GroupFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onClick"
+            tools:layout="@layout/fragment_group_list" />
+    </FrameLayout>
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -240,4 +235,14 @@
         app:layout_constraintStart_toStartOf="@+id/guideline58"
         app:layout_constraintTop_toTopOf="@+id/guideline65" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline59"
+        app:layout_constraintStart_toStartOf="@+id/guideline58"
+        app:layout_constraintTop_toTopOf="@+id/guideline21"
+        app:menu="@menu/traveler_bottom_nav_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>
