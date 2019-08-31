@@ -2,8 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     tools:context=".activitys.RegClass">
 
     <ImageView
@@ -23,12 +23,11 @@
         android:layout_height="99dp"
         android:background="@android:color/white"
         android:src="@drawable/timerturtle"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/guideline53"
         app:layout_constraintEnd_toStartOf="@+id/guideline54"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toEndOf="@+id/travelerRegBtn"
-        app:layout_constraintTop_toTopOf="@+id/guideline52"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintTop_toTopOf="@+id/guideline52" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline41"
@@ -268,4 +267,14 @@
         app:layout_constraintStart_toStartOf="@+id/guideline44"
         app:layout_constraintTop_toBottomOf="@+id/displayNameFld" />
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/reg_nav_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="?android:attr/windowBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline53"
+        app:menu="@menu/reg_bottom_nav_menu" />
 </androidx.constraintlayout.widget.ConstraintLayout>

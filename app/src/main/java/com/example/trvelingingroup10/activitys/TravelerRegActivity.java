@@ -3,12 +3,14 @@ package com.example.trvelingingroup10.activitys;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.trvelingingroup10.Groups.GroupFragment;
@@ -44,8 +46,8 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_traveler_reg );
         Intent travelerReg = getIntent();
-        BottomNavigationView navView = findViewById( R.id.nav_view );
-
+        //BottomNavigationView navView = findViewById( R.id.traveler_nav_view);
+        BottomNavigationView travelerNavView = findViewById(R.id.traveler_nav_view);
         String userId =  travelerReg.getStringExtra("user id");
         String displayName = travelerReg.getStringExtra("display name");
         String userEmail = travelerReg.getStringExtra("user email");
@@ -75,8 +77,25 @@ public class TravelerRegActivity extends AppCompatActivity implements GroupFragm
         //deffCB.setOnCheckedChangeListener();
 
 
-        //containerOfGroups =  findViewById(R.layout.fragment_group);
-        //todo:check how to inflait the frag
+
+        travelerNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.save_update_traveler_data:
+
+                       //todo:make buttons active
+
+                        break;
+                    case R.id.start_tour:
+
+                        break;
+                }
+
+                return true;
+            }
+        });
+
 
      //   saveTheDataToLocalSharedPref(traveler);
     }

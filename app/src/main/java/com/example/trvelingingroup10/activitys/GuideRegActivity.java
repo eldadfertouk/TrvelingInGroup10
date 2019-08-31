@@ -32,12 +32,12 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
         View.OnClickListener {
     private static final String TAG="GuideRegActivity";
     private TextView mTextMessage,guideName,spokentang;
-    private Button addNewGroupBtn,addNewGuideBtn,startTourAsGuide;
-    private BottomNavigationView navView;
-    private ConstraintLayout regGuideConstraintLayoutContainer;
+    //private Button addNewGroupBtn,addNewGuideBtn,startTourAsGuide;
+    private BottomNavigationView guideNavView;
+    //private ConstraintLayout regGuideConstraintLayoutContainer;
     private Boolean isLocalGuide;
     private String guideUID;
-    FragmentContainer listOfTravelers;
+    //FragmentContainer listOfTravelers;
     private Guide guide;
     //private TextView currentTraveler;
 
@@ -55,8 +55,6 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
         Button addNewGuideBtn;
         @BindView(R.id.startTourGuideBtn)
         Button startTourGuideBtn;
-        @BindView(R.id.nav_view)
-        BottomNavigationView navView;
 
         @BindView(R.id.travelersListFrag)
         android.widget.Adapter travelersListFrag;
@@ -84,16 +82,10 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
 //        setContentView( R.layout.fragment_traveler );
         ButterKnife.bind( this );
         guideUID = guideReg.getStringExtra("user id");
-        BottomNavigationView navView = findViewById( R.id.nav_view );
+        guideNavView = findViewById( R.id.guide_nav_view);
         mTextMessage = findViewById( R.id.mTextMessage );
+        guideNavView.setOnNavigationItemSelectedListener( mOnNavigationItemSelectedListener );
 
-        try {
-            navView.setOnNavigationItemSelectedListener( mOnNavigationItemSelectedListener );
-        }
-        catch (Exception e){
-            makeText( this, "error:  "+ e.getMessage().toString() , Toast.LENGTH_LONG ).show();
-
-        }
 
     }
 
@@ -148,7 +140,7 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
                 addNewGroupToFireBase(guideData);
                 break;
             case R.id.addNewGuideBtn:
-         //       Toast.makeText(this,"add new guide to fire base",Toast.LENGTH_LONG).show();
+                Toast.makeText(this,"add new guide to fire base",Toast.LENGTH_LONG).show();
                 addNewGuideDataToFireBase(guide);
                 break;
             case R.id.startTourGuideBtn:
@@ -166,14 +158,17 @@ public class GuideRegActivity extends AppCompatActivity implements TravelerFragm
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem item) {
             switch (item.getItemId()) {
-                case R.id.navigation_home:
+                case R.id.add_new_tour:
                     mTextMessage.setText( R.string.title_home );
+
                     return true;
-                case R.id.navigation_dashboard:
-                    mTextMessage.setText( R.string.title_dashboard );
+                case R.id.show_list_of_tours:
+                    mTextMessage.setText( R.string.show_tours_list );
+
                     return true;
-                case R.id.navigation_notifications:
-                    mTextMessage.setText( R.string.title_notifications );
+                case R.id.start_travel_guide:
+                    mTextMessage.setText( R.string.start_tour );
+
                     return true;
             }
             return false;

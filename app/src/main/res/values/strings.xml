@@ -215,4 +215,6 @@
     <string name="answers_and_questions">הצג תשובות</string>
     <string name="save_and_update_traveler_data">שמירה-עדכון פרטי מטייל</string>
     <string name="start_tour">לטיול</string>
+    <string name="guide_start">מדריך</string>
+    <string name="traveler_strat">מטייל</string>
 </resources>

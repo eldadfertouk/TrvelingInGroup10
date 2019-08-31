@@ -108,7 +108,7 @@ public class GroupFragment extends Fragment implements Serializable {
         loadTheGroups();
         // Set the adapter
         if (view instanceof RecyclerView) {
-            Context context = view.getContext();
+            context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
             if (mColumnCount <= 1) {
                 recyclerView.setLayoutManager( new LinearLayoutManager( context ) );
@@ -125,7 +125,6 @@ public class GroupFragment extends Fragment implements Serializable {
         // TODO: 15/12/2018 אשר תפקידו הוא להציג לנו כמות מידע מסויימת לפי תבנית שהגדרנו מראש
         LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
         layoutManager.setSmoothScrollbarEnabled(true);
-
         RecyclerView recyclerView = view.findViewById(R.id.group_fragment_list );
         recyclerView.setLayoutManager(layoutManager);
         MyGroupRecyclerViewAdapter adapter = new MyGroupRecyclerViewAdapter(groupClasses);
@@ -150,6 +149,7 @@ public class GroupFragment extends Fragment implements Serializable {
                         for (int i =0;i<task.getResult().getDocuments().size();i++){
                             groupClasses.add(task.getResult().getDocuments().get(i).toObject(Group.class));
                         }
+                        //todo:check fields and match to firestore
                         initRecyclerView();
                     }
                 });

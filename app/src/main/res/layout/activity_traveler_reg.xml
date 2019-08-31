@@ -236,7 +236,7 @@
         app:layout_constraintTop_toTopOf="@+id/guideline65" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
+        android:id="@+id/traveler_nav_view"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:background="?android:attr/windowBackground"

@@ -8,6 +8,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -28,6 +29,7 @@ import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -56,6 +58,7 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
     public Boolean isGuide = false;
     TextView useridtextfiled, displaynametextfiled, useremailtextfield, phonenumbertextfiled, locationtextfield,firstNametextfield,lastNametextfield;
     Button guideRegistrationBtn, travelerRegistrationBtn;
+    BottomNavigationView regNav;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +70,7 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
         createScreenWithBasickUserData(basicUser);
         defineAndSaveLocation();
         readFromFireBase();
-
+        //todo:check that page kipp crushing
 
         getLocation();
     }
@@ -99,6 +102,24 @@ public class RegClass extends AppCompatActivity implements View.OnClickListener 
         useremailtextfield.setText(useremail);
         phonenumbertextfiled.setText(phounenumber);
         locationtextfield.setText(loc);
+        regNav = findViewById(R.id.reg_nav_view);
+        regNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.continue_as_traveler:
+                    //todo: build new move to travelerReg
+
+                        return true;
+                    case R.id.continue_as_guide:
+                        //todo: build new move to guideReg
+
+                        return true;
+
+                }
+                return false;
+            }
+        });
         //update basic user with his current location
         basicUser.setLat(wayLatitude);
         basicUser.setLon(wayLongitude);

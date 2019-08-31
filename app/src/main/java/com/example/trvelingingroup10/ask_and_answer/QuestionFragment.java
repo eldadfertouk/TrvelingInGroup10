@@ -36,8 +36,10 @@ public class QuestionFragment extends Fragment {
                              Bundle savedInstanceState) {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        
         view = inflater.inflate(R.layout.fragment_question, container, false);
+        RecyclerView recyclerView = view.findViewById(R.id.show_question_in_recyclerview);
+        recyclerView.setLayoutManager(layoutManager);
+
         loadDataBase();
         setButtonListeners();
         return view;

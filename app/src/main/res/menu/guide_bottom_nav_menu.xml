@@ -14,7 +14,7 @@
 
 
     <item
-        android:id="@+id/strat_tour"
+        android:id="@+id/start_travel_guide"
         android:icon="@drawable/guidesmall"
 
         android:title="@string/start_travel" />

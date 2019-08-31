@@ -6,6 +6,7 @@ import com.example.trvelingingroup10.content.TravelerContent;
 import com.example.trvelingingroup10.travelers.Traveler;
 
 import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -16,9 +17,6 @@ import lombok.NonNull;
 import lombok.Setter;
 import lombok.ToString;
 
-@Getter
-@Setter
-
 @NonNull
 
 @ToString
@@ -26,38 +24,39 @@ import lombok.ToString;
 
 public class Group {
     private int numberToAdd;
-    private static int GroupId,monitorLevel;
-    private String GroupName,GroupCode,dateOfTourStart,groupContactInfo,groupId,groupLeader,groupImageRefPath;
+    private int monitorLevel;
+    private String name,code,dateOfTourStart,contactInfo,groupId,groupLeader,groupImageRefPath;
     private Date startDate,endDate;
     private Time startTime,endTime;
-
     private Image groupPicture;
-    private List<Traveler> listOfTravelerInGroup ;
+
+    private List<Traveler> travelersInTheGroup ;
     private Map <String, TravelerContent.TravelerItem> TRAVELERS_LIST = new HashMap<String, TravelerContent.TravelerItem>();
 
     public Group() {
     }
     public Group(int tets){
         this.numberToAdd = 50;
-        GroupId = 99999;
-        GroupName = "fisrt group";
-        GroupCode = "g1";
+
+        this.name = "fisrt group";
+        this.code = "g1";
         this.monitorLevel=1;
         this.dateOfTourStart = "31/12/2019";
-        this.groupContactInfo = "group contact info sms phone ";
+        this.contactInfo = "group contact info sms phone ";
         this.groupId = "g-id1";
         this.groupLeader = "team leader";
         this.groupImageRefPath = "image path";
+        this.travelersInTheGroup = new ArrayList<Traveler>();
 
     }
 
     public Group(int numberToAdd, int groupId, String groupName, String groupCode, String dateOfTourStart, String groupContactInfo, String groupId1, String groupLeader, String groupImageRefPath, Image groupPicture, Map<String, TravelerContent.TravelerItem> TRAVELERS_LIST) {
         this.numberToAdd = numberToAdd;
-        GroupId = groupId;
-        GroupName = groupName;
-        GroupCode = groupCode;
+
+        this.name = groupName;
+        this.code = groupCode;
         this.dateOfTourStart = dateOfTourStart;
-        this.groupContactInfo = groupContactInfo;
+        this.contactInfo = groupContactInfo;
         this.groupId = groupId1;
         this.groupLeader = groupLeader;
         this.groupImageRefPath = groupImageRefPath;
@@ -78,20 +77,30 @@ public class Group {
         this.numberToAdd = numberToAdd;
     }
 
-    public String getGroupName() {
-        return GroupName;
+
+
+    public int getMonitorLevel() {
+        return monitorLevel;
     }
 
-    public void setGroupName(String groupName) {
-        GroupName = groupName;
+    public void setMonitorLevel(int monitorLevel) {
+        this.monitorLevel = monitorLevel;
     }
 
-    public String getGroupCode() {
-        return GroupCode;
+    public String getName() {
+        return name;
     }
 
-    public void setGroupCode(String groupCode) {
-        GroupCode = groupCode;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 
     public String getDateOfTourStart() {
@@ -102,12 +111,12 @@ public class Group {
         this.dateOfTourStart = dateOfTourStart;
     }
 
-    public String getGroupContactInfo() {
-        return groupContactInfo;
+    public String getContactInfo() {
+        return contactInfo;
     }
 
-    public void setGroupContactInfo(String groupContactInfo) {
-        this.groupContactInfo = groupContactInfo;
+    public void setContactInfo(String contactInfo) {
+        this.contactInfo = contactInfo;
     }
 
     public String getGroupId() {
@@ -134,6 +143,38 @@ public class Group {
         this.groupImageRefPath = groupImageRefPath;
     }
 
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public Time getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Time startTime) {
+        this.startTime = startTime;
+    }
+
+    public Time getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Time endTime) {
+        this.endTime = endTime;
+    }
+
     public Image getGroupPicture() {
         return groupPicture;
     }
@@ -142,4 +183,19 @@ public class Group {
         this.groupPicture = groupPicture;
     }
 
+    public List<Traveler> getTravelersInTheGroup() {
+        return travelersInTheGroup;
+    }
+
+    public void setTravelersInTheGroup(List<Traveler> travelersInTheGroup) {
+        this.travelersInTheGroup = travelersInTheGroup;
+    }
+
+    public Map<String, TravelerContent.TravelerItem> getTRAVELERS_LIST() {
+        return TRAVELERS_LIST;
+    }
+
+    public void setTRAVELERS_LIST(Map<String, TravelerContent.TravelerItem> TRAVELERS_LIST) {
+        this.TRAVELERS_LIST = TRAVELERS_LIST;
+    }
 }
