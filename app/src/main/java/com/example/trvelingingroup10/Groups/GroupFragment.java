@@ -105,27 +105,15 @@ public class GroupFragment extends Fragment implements Serializable {
                              Bundle savedInstanceState) {
         view = inflater.inflate( R.layout.fragment_group_list, container, false );
         loadDataBase();
-        loadTheGroups();
-        // Set the adapter
-        if (view instanceof RecyclerView) {
-            context = view.getContext();
-            RecyclerView recyclerView = (RecyclerView) view;
-            if (mColumnCount <= 1) {
-                recyclerView.setLayoutManager( new LinearLayoutManager( context ) );
-            } else {
-                recyclerView.setLayoutManager( new GridLayoutManager( context, mColumnCount ) );
-            }
-            recyclerView.setAdapter( new MyGroupRecyclerViewAdapter( GroupContent.GROUP_ITEMS, mListener ) );
-        }
         return view;
     }
     private void initRecyclerView(){
 
 // TODO: 15/12/2018 איתחול של אובייקט מסוג recycelviev
         // TODO: 15/12/2018 אשר תפקידו הוא להציג לנו כמות מידע מסויימת לפי תבנית שהגדרנו מראש
-        LinearLayoutManager layoutManager = new LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false);
         layoutManager.setSmoothScrollbarEnabled(true);
-        RecyclerView recyclerView = view.findViewById(R.id.group_fragment_list );
+        RecyclerView recyclerView = view.findViewById(R.id.recycler );
         recyclerView.setLayoutManager(layoutManager);
         MyGroupRecyclerViewAdapter adapter = new MyGroupRecyclerViewAdapter(groupClasses);
         recyclerView.setAdapter(adapter);
@@ -136,13 +124,13 @@ public class GroupFragment extends Fragment implements Serializable {
             @Override
             public void run() {
                 groupClasses = new ArrayList<>();
-                database.collection("groups").document("DOgf6HQ9p0O9Fq0Qxdiy").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>(){
+              /*  database.collection("groups").document("DOgf6HQ9p0O9Fq0Qxdiy").get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>(){
                     @Override
                     public void onComplete(@androidx.annotation.NonNull Task<DocumentSnapshot> task) {
 
                     }
 
-                });
+                });*/
 
 
 
@@ -170,18 +158,26 @@ public class GroupFragment extends Fragment implements Serializable {
     @Override
     public void onAttach(Context context) {
         super.onAttach( context );
+        this.context=context;
         if (context instanceof OnListFragmentInteractionListener) {
             mListener = (OnListFragmentInteractionListener) context;
         } else {
             throw new RuntimeException( context.toString()
                     + " must implement OnListFragmentInteractionListener" );
         }
+
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        loadTheGroups();
     }
 
     public interface OnListFragmentInteractionListener {

@@ -58,9 +58,9 @@ public class MyGroupRecyclerViewAdapter extends RecyclerView.Adapter<MyGroupRecy
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-        holder.mGroupItem = mValues.get( position );
+  /*      holder.mGroupItem = mValues.get( position );
         holder.mIdView.setText( mValues.get( position ).groupId );
-        holder.mContentView.setText( mValues.get( position ).groupContent );
+        holder.mContentView.setText( mValues.get( position ).groupContent );*/
         holder.joinGroupBtn.setOnClickListener(this);
   //      holder.startDate.setTime(Long.parseLong(mValues.get(position).dateOfTourStart));
         holder.mView.setOnClickListener( new View.OnClickListener() {
@@ -77,7 +77,7 @@ public class MyGroupRecyclerViewAdapter extends RecyclerView.Adapter<MyGroupRecy
 
     @Override
     public int getItemCount() {
-        return mValues.size();
+        return groupClasses.size();
     }
 
     @Override

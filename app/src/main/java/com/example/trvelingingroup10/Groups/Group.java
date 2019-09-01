@@ -37,7 +37,6 @@ public class Group {
     }
     public Group(int tets){
         this.numberToAdd = 50;
-
         this.name = "fisrt group";
         this.code = "g1";
         this.monitorLevel=1;
@@ -47,7 +46,6 @@ public class Group {
         this.groupLeader = "team leader";
         this.groupImageRefPath = "image path";
         this.travelersInTheGroup = new ArrayList<Traveler>();
-
     }
 
     public Group(int numberToAdd, int groupId, String groupName, String groupCode, String dateOfTourStart, String groupContactInfo, String groupId1, String groupLeader, String groupImageRefPath, Image groupPicture, Map<String, TravelerContent.TravelerItem> TRAVELERS_LIST) {
