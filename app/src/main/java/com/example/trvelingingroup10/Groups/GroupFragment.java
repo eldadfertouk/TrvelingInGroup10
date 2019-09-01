@@ -143,6 +143,9 @@ public class GroupFragment extends Fragment implements Serializable {
                     }
 
                 });
+
+
+
                 database.collection("groups").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
