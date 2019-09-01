@@ -59,6 +59,7 @@ public class MyGroupRecyclerViewAdapter extends RecyclerView.Adapter<MyGroupRecy
 
 
 
+
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
   /*      holder.mGroupItem = mValues.get( position );
